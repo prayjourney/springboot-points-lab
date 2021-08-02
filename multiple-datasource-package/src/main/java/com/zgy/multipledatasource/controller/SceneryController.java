@@ -39,7 +39,7 @@ public class SceneryController {
 
     @RequestMapping("name")
     public String getSceneryNameById(Integer id) {
-        log.info("getSceneryNameById" );
+        log.info("getSceneryNameById");
         return sceneryService.getSceneryNameById(id);
     }
 }
