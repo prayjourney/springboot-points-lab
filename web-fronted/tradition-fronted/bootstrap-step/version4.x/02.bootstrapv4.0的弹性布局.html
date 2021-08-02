@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!--
+            关于flex布局的介绍
+            https://www.cnblogs.com/sexintercourse/p/6732109.html
+            https://www.cnblogs.com/lcspring/p/10729117.html
+            https://www.cnblogs.com/sharpall/p/6703868.html
+            https://www.runoob.com/bootstrap4/bootstrap4-flex.html
+            https://www.runoob.com/css3/css3-flexbox.html
+            https://www.csdn.net/gather_2b/NtzaMgxsMzAzLWJsb2cO0O0O.html
+            https://www.cnblogs.com/hxling/articles/10011933.html
+        -->
+        <meta charset="UTF-8">
+        <title>02.bootstrapv4.0的弹性布局</title>
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/bootstrap-grid.min.css">
+        <link rel="stylesheet" href="css/bootstrap-reboot.min.css">
+    </head>
+    <body>
+        <!-- 弹性布局，d-flex标识，水平方式，默认就是水平, flex-row -->
+        <div class="d-flex">
+            <div class="text-center lead"> 登鹳雀楼</div>
+            <div class="bg-danger text-center">白日依山尽</div>
+            <div class="bg-info text-center">黄河入海流</div>
+            <div class="bg-primary text-center">欲穷千里目</div>
+            <div class="bg-success text-center">更山一层楼</div>
+        </div>
+
+        <!-- 水平方式，明确使用flex-row， p-2表示占两行-->
+        <div class="d-flex flex-row">
+            <div class="p-2 text-center lead">凉州词</div>
+            <div class="bg-success text-center">葡萄美酒夜光杯</div>
+            <div class="bg-danger text-center">欲饮琵琶马上催</div>
+            <div class="bg-info text-center">醉卧沙场君莫笑</div>
+            <div class="bg-primary text-center">古来征战几人回</div>
+        </div>
+
+        <!-- align-self-xxx， start上 end下 center中，表示位置上下的位置关系-->
+        <div class="d-flex flex-row">
+            <div class="p-3 text-center lead align-self-start">凉州词</div>
+            <div class="bg-success text-center align-self-start">北斗七星高</div>
+            <div class="bg-danger text-center align-self-end">哥舒夜带刀</div>
+            <div class="bg-info text-center align-self-center">至今窥牧马</div>
+            <div class="bg-primary text-center">不敢过临洮</div>
+        </div>
+
+        <!-- flex-fill表示平分这一行 -->
+        <div class="d-flex flex-row">
+            <div class="p-2 flex-fill lead border border-danger">凉州词</div>
+            <div class="flex-fill bg-success text-left">北斗七星高</div>
+            <div class="flex-fill bg-danger ">哥舒夜带刀</div>
+            <div class="flex-fill bg-info ">至今窥牧马</div>
+            <div class="flex-fill bg-primary">不敢过临洮</div>
+        </div>
+
+        <hr/>
+        <!-- text-center align-self-center才放到中间了 -->
+        <div class="d-flex flex-row">
+            <div class="p-2 flex-fill lead border border-danger">凉州词</div>
+            <div class="flex-fill bg-success text-left">北斗七星高</div>
+            <div class="flex-fill bg-danger text-center align-self-center">哥舒夜带刀</div>
+            <div class="flex-fill bg-info">至今窥牧马</div>
+            <div class="flex-fill bg-primary">不敢过临洮</div>
+        </div>
+
+        <!-- 垂直排列，flex-column -->
+        <div class="d-flex flex-column">
+            <div class="p-2 align-content-center text-center lead">江南逢李龟年</div>
+            <!-- p-1 是指占一行的宽度 -->
+            <div class="p-2 border border-info text-center">岐王宅里寻常见</div>
+            <div class="p-2 border border-danger text-center">崔九堂前几度闻</div>
+            <div class="p-1 border border-dark text-center">正是江南好风景</div>
+            <div class="p-1 border border-primary text-center">落花时节又逢君</div>
+        </div>
+
+        <div class="d-flex flex-column">
+            <div class="p-2 align-content-center text-center lead">江南逢李龟年</div>
+            <!-- align-self-start 排列的位置 -->
+            <div class="p-3 border border-info text-center align-self-start">岐王宅里寻常见</div>
+            <div class="p-2 border border-danger text-center align-self-center">崔九堂前几度闻</div>
+            <div class="p-1 border border-dark text-center align-self-end">正是江南好风景</div>
+            <div class="p-1 border border-primary text-center">落花时节又逢君</div>
+        </div>
+
+        <!-- 水平排列配合col使用, 这个放一起还是有点问题 -->
+        <div class="col-12 inline-flex text-center lead justify-content-end"> 登鹳雀楼</div>
+        <div class="d-flex flex-row">
+            <div class="col-3 bg-danger text-center">白日依山尽</div>
+            <div class="col-3 bg-info text-center">黄河入海流</div>
+            <div class="col-3 bg-primary text-center">欲穷千里目</div>
+            <div class="col-3 bg-success text-center">更山一层楼</div>
+        </div>
+
+        <!-- 垂直排列配合col使用 -->
+        <div class="d-flex flex-column">
+            <div class="col-10 offset-1 text-center lead"> 登鹳雀楼</div>
+            <div class="col-8 offset-2 bg-danger text-center">白日依山尽</div>
+            <div class="col-8 bg-info text-center">黄河入海流</div>
+            <div class="col-8 bg-primary text-center">欲穷千里目</div>
+            <div class="col-4 bg-success text-center">更山一层楼</div>
+        </div>
+
+        <!-- 如何水平里面放垂直？ 垂直里面放水平？ -->
+
+
+        <!-- 引入js文件 -->
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/jquery-3.4.1.js"></script>
+        <script src="js/popper.min.js"></script>
+    </body>
+</html>
+

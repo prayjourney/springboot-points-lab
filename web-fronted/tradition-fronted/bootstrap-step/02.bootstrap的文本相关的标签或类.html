@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>02.bootstrap的文本相关的标签或类</title>
+        <link rel="stylesheet" href="static/css/bootstrap.css">
+    </head>
+    <body>
+        <!-- 容器 -->
+        <div class="container">
+            <!-- small标签是副标题 -->
+            <h2>Bootstrap的使用<small>副标题v1.1</small></h2>
+            <p>
+                <!-- lead标签表示强调-->
+                <span class="lead">秋思</span><br/>
+                [唐] 李白 <br/>
+                春阳如昨日，碧树鸣黄鹂。<br/>
+                芜然蕙草暮，飒尔凉风吹。<br/>
+                天秋木叶下，月冷莎鸡悲。<br/>
+                坐愁群芳歇，白露凋华滋。<br/>
+                <!-- s和del标签表示无用的文本 -->
+                <span>这是<s>无用的一句话！</s></span><br/>
+                <span>这是<del>无用的一句话！</del></span><br/>
+                <!-- em标签表示斜体的文本 -->
+                <span>这是<em>斜体的一句话！</em></span><br/>
+                <!-- ins和u标签表示下划线的文本 -->
+                <span>这是<ins>下划线的一句话！</ins></span><br/>
+                <span>这是<u>下划线的一句话！</u></span><br/>
+                <!-- mark标签表示标记的文本 -->
+                <span>这是<mark>下划线的一句话！</mark></span><br/>
+            </p>
+            <hr/>
+            <!-- blockquote是引用，旁边就会有一条竖线 -->
+            <blockquote>
+                <!-- 这儿使用栅格系统稍微布局了一下 -->
+                <div class="row">
+                    <span class="lead" style="margin-left: 40px; ">行路难·有耳莫洗颍川水</span><br/>
+                    <span class="col-sm-2 col-lg-offset-2"><small>[唐] 李白</small></span>
+                </div>
+                有耳莫洗颍川水，有口莫食首阳蕨。<br/>
+                含光混世贵无名，何用孤高比云月？<br/>
+                吾观自古贤达人，功成不退皆殒身。<br/>
+                子胥既弃吴江上，屈原终投湘水滨。<br/>
+                陆机雄才岂自保？李斯税驾苦不早。<br/>
+                华亭鹤唳讵可闻？上蔡苍鹰何足道？<br/>
+                君不见吴中张翰称达生，秋风忽忆江东行。<br/>
+                且乐生前一杯酒，何须身后千载名？<br/>
+            </blockquote>
+
+            <hr/>
+            <span class="lead">文字的对其方式</span>
+            <p class="text-left">举头忽见衡阳雁。千声万字情何限。</p>
+            <p class="text-center">举头忽见衡阳雁。千声万字情何限。</p>
+            <p class="text-right">举头忽见衡阳雁。千声万字情何限。</p>
+            <!-- text-text-justify: 超出会换行 -->
+            <p class="col-sm-2 col-lg-offset-11 text-justify">举头忽见衡阳雁。千声万字情何限。</p>
+            <!-- text-nowrap: 始终是一行，超出也不换行 -->
+            <p class="col-sm-2 col-lg-offset-11 text-nowrap">举头忽见衡阳雁。千声万字情何限。</p>
+            <hr/>
+
+            <!-- 有序列表ol和无序列表ul, 列表项都是li -->
+            <span class="lead">无序列表ul</span>
+            <ul>
+                <li>Spring MVC</li>
+                <li>Spring Boot</li>
+                <li>Spring Cloud</li>
+                <li>Spring Data</li>
+            </ul>
+
+            <span class="lead">有序列表ol</span>
+            <ol>
+                <li>英语</li>
+                <li>数学</li>
+                <li>语文</li>
+                <li>几何</li>
+            </ol>
+            <hr/>
+            <!-- code标签 -->
+            <code>System.out.println("Hello world!")</code><br/>
+            <code>console.log("Hello world!")</code><br/>
+            <code>print("hello world!")</code><br/>
+            <code>puts('hello world') </code><br/>
+            <code>cout >> "hello world" </code><br/>
+            <!-- samp就是输出 -->
+            <samp>输出就是这样子的...</samp><br/>
+            <!-- kdb是键盘输入： -->
+            kdb是键盘输入： <kdb><kbd>ctrl</kbd> + <kbd>,</kbd></kdb><br/>
+            <pre><p>这是样例代码</p></pre>
+            <!-- 变量 -->
+            <var>y</var> = <var>m</var><var>x</var> + <var>b</var>
+        </div>
+
+    </body>
+</html>
+

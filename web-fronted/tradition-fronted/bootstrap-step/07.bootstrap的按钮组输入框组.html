@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>07.bootstrap的按钮组输入框组</title>
+        <link rel="stylesheet" href="static/css/bootstrap.css">
+    </head>
+    <body>
+        <!-- 容器 -->
+        <div class="container">
+            <div class="row">
+                <!-- 普通的几个按钮, 没有组合关系-->
+                <div class="col-sm-6 col-sm-offset-3" style="margin: 10px">
+                    <p class="text-info">我是几个普通的按钮</p>
+                    <button class="btn btn-info btn-sm">李白</button>
+                    <button class="btn btn-danger btn-sm">杜甫</button>
+                    <button class="btn btn-warning btn-sm">李商隐</button>
+                    <button class="btn btn-primary btn-sm">白居易</button>
+                    <button class="btn btn-success btn-sm">王勃</button>
+                    <button class="btn btn-default btn-sm">陈子昂</button>
+                </div>
+
+                <!-- 按钮组-->
+                <div class="col-sm-6 col-sm-offset-3 btn-group" style="margin: 10px;">
+                    <p class="text-info">我是按钮组</p>
+                    <button class="btn btn-info btn-sm">李白</button>
+                    <button class="btn btn-danger btn-sm">杜甫</button>
+                    <button class="btn btn-warning btn-sm">李商隐</button>
+                    <button class="btn btn-primary btn-sm">白居易</button>
+                    <button class="btn btn-success btn-sm">王勃</button>
+                    <button class="btn btn-default btn-sm">陈子昂</button>
+                </div>
+
+                <!-- 按钮组, 自适应父组件的宽度-->
+                <div class="col-sm-9 col-sm-offset-3 btn-group btn-group-justified" style="margin: 10px;">
+                    <p class="text-info">我是按钮组</p>
+                    <button class="btn btn-info btn-sm">李白</button>
+                    <button class="btn btn-danger btn-sm">杜甫</button>
+                    <button class="btn btn-warning btn-sm">李商隐</button>
+                    <button class="btn btn-primary btn-sm">白居易</button>
+                    <button class="btn btn-success btn-sm">王勃</button>
+                    <button class="btn btn-default btn-sm">陈子昂</button>
+                </div>
+
+                <!-- 按钮工具栏btn-toolbar, 好管理-->
+                <div class="btn-toolbar col-sm-6 col-sm-offset-3">
+                    <p class="text-info">按钮工具栏</p>
+                    <button class="btn btn-info btn-sm">李白-诗仙</button>
+                    <button class="btn btn-danger btn-sm">杜甫</button>
+                    <button class="btn btn-warning btn-sm">李商隐</button>
+                    <button class="btn btn-primary btn-sm">白居易</button>
+                    <button class="btn btn-success btn-sm">王勃</button>
+                    <button class="btn btn-default btn-sm">陈子昂</button>
+                </div>
+            </div>
+
+            <hr/>
+            <div class="row">
+                <div class="col-sm-6 col-sm-offset-3">
+                    <span class="lead">普通的输入框</span><br/>
+                    <span>姓名</span>
+                    <input type="text" class="form-control">
+                    <span>邮箱</span>
+                    <input type="email" class="form-control">
+                    <span>住址</span>
+                    <input type="text" class="form-control">
+                </div>
+
+                <div class="col-sm-10 col-sm-offset-2">
+                    <p class="lead text-info">输入框组其实就是为了美化，按钮组相比作用也是美化，但是作用更大一点</p>
+                </div>
+
+                <div class="col-sm-6 col-sm-offset-3">
+                    <span class="lead">输入框组</span><br/>
+                    <span>姓名</span>
+                    <div class="input-group">
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span> </span>
+                        <input type="text" class="form-control">
+                    </div>
+
+                    <span>邮箱</span>
+                    <div class="input-group">
+                        <input type="email" class="form-control">
+                        <span class="input-group-addon">@qq.com</span>
+                    </div>
+                    <span>住址</span>
+                    <div class="input-group">
+                        <span class="input-group-addon">中国.上海市</span>
+                        <input type="text" class="form-control">
+                        <span class="input-group-addon">区</span>
+                        <input type="text" class="form-control">
+                        <span class="input-group-addon">镇</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </body>
+</html>
+

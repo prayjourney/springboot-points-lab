@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>05.bootstrap的form表单</title>
+        <link rel="stylesheet" href="static/css/bootstrap.css">
+    </head>
+    <body>
+        <!-- 基本表单 -->
+        <div class="container">
+            <span class="lead">1. 基本表单, 垂直表单</span>
+            <form>
+                <div class="row">
+                    <!-- 放在了同一行 -->
+                    <div class="form-group-sm col-sm-10">
+                        <label for="username"><strong>用户名：</strong></label>
+                        <input id="username" type="text" class="form-control">
+                    </div>
+                    <!-- 放在了同一行 -->
+                    <div class="form-group-sm col-sm-10">
+                        <label for="password"><strong>密码：</strong></label>
+                        <input id="password" type="text" class="form-control">
+                    </div>
+                </div>
+            </form>
+            <hr/>
+
+            <span class="lead">1. 基本表单, 垂直表单， 做了简单的布局偏移</span>
+            <form>
+                <!-- 表示控件是一行一行的排列的 -->
+                <div class="row">
+                    <!-- 没有放在同一行，偏移1个格子 -->
+                    <div class="form-group-sm col-sm-10 col-sm-offset-1">
+                        <label for="name"><strong>用户名：</strong></label>
+                        <input id="name" type="text" class="form-control">
+                    </div>
+                    <div class="form-group-sm col-sm-10 col-sm-offset-1">
+                        <label for="pwd"><strong>密码：</strong></label>
+                        <input id="pwd" type="text" class="form-control">
+                    </div>
+                    <!-- 放在这个div, 控制一下边框的范围大小 -->
+                    <div class="form-group-sm col-sm-10 col-sm-offset-1" style="margin-top: 10px">
+                        <input id="sub" type="button" value="提交" class="btn-block btn btn-info">
+                        <input id="res" type="button" value="重置" class="btn-block btn btn-warning">
+                    </div>
+                </div>
+            </form>
+
+            <hr/>
+            <span class="lead">2. 内联表单，在一行，控制了样式，放在中间，偏移</span>
+            <div class="row">
+                <form class="col-sm-8 col-lg-offset-2 form-inline">
+                    <label for="user"><strong>用户名：</strong></label>
+                    <input id="user" type="text" class="form-control">
+                    <label for="pwds"><strong>密码：</strong></label>
+                    <input id="pwds" type="text" class="form-control">
+                    <input type="button" value="提交" class="form-control btn btn-success">
+                    <input type="button" value="重置" class="form-control btn btn-warning">
+                </form>
+            </div>
+
+            <hr/>
+            <span class="lead">3. 水平表单，配合栅格系统使用</span>
+            <form action="" class="form-horizontal">
+                <div class="form-group">
+                    <label for="user1" class="col-sm-2 control-label"><strong>用户名：</strong></label>
+                    <div class="col-sm-10">
+                        <input id="user1" type="text" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="pwds1" class="col-sm-2 control-label"><strong>密码：</strong></label>
+                    <div class="col-sm-10">
+                        <input id="pwds1" type="text" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-3 col-sm-offset-2">
+                        <input type="button" value="提交" class="form-control btn btn-success">
+                    </div>
+                    <div class="col-sm-3 col-sm-offset-2">
+                        <input type="button" value="重置" class="form-control btn btn-warning">
+                    </div>
+                </div>
+            </form>
+
+        </div>
+
+    </body>
+</html>
+
