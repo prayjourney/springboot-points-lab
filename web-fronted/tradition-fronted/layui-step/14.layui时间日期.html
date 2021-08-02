@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>14.layui时间日期</title>
+        <link rel="stylesheet" href="static/layui-2.5.6/css/layui.css">
+    </head>
+    <body>
+        <div class="layui-container">
+            <div class="layui-row layui-col-lg8 layui-col-lg-offset2">
+                <div class="layui-inline"> <!-- 注意：这一层元素并不是必须的 -->
+                    <div class="layui-inline">
+                        <label class="layui-text">默认</label>
+                        <input type="text" class="layui-input" id="test1"/>
+                    </div>
+                    <div class="layui-inline">
+                        <label class="layui-text">year</label>
+                        <input type="text" class="layui-input" id="test2"/>
+                    </div>
+                    <div class="layui-inline">
+                        <label class="layui-text">datetime</label>
+                        <input type="text" class="layui-input" id="test3"/>
+                    </div>
+                    <div class="layui-inline">
+                        <label class="layui-text">time</label>
+                        <input type="text" class="layui-input" id="test4"/>
+                    </div>
+                    <div class="layui-inline">
+                        <label class="layui-text">format格式化</label>
+                        <input type="text" class="layui-input" id="test5"/>
+                    </div>
+                    <div class="layui-inline">
+                        <label class="layui-text">value初始值</label>
+                        <input type="text" class="layui-input" id="test6"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="static/layui-2.5.6/layui.js"></script>
+        <script>
+            layui.use('laydate', function () {
+                var laydate = layui.laydate;
+
+                // 执行一个laydate实例
+                laydate.render({
+                    elem: '#test1' //指定元素
+                });
+                laydate.render({
+                    elem: '#test2', //指定元素
+                    type: 'year'
+                });
+                laydate.render({
+                    elem: '#test3',  //指定元素
+                    type: 'datetime'
+                });
+                laydate.render({
+                    elem: '#test4',  //指定元素
+                    type: 'time'
+                });
+                laydate.render({
+                    elem: '#test5',  //指定元素
+                    format: 'yyyy年--MM月--dd日'
+                });
+                laydate.render({
+                    elem: '#test6',  //指定元素
+                    format: 'yyyy年/MM月/dd日',
+                    value: '2013年/02月/15日'
+                });
+            });
+        </script>
+    </body>
+</html>
