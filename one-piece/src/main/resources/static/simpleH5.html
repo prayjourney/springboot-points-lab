@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- meta的seo：https://www.cnblogs.com/lichuntian/p/5084951.html -->
+        <meta charset="UTF-8" about="test" title="h5的小总结" name="keywords"
+              content=" HTML5, CSS3, JavaScript的学习">
+        <title>简单的h5</title>
+        <style type="text/css">
+            #qiangjingjiu {
+                text-align: center;
+                font-size: xx-large;
+                font-family: 华文楷体;
+            }
+
+            #poet {
+                padding-left: 5%;
+            }
+
+            img {
+                padding-left: 30px;
+            }
+
+            tr td {
+                width: 100px;
+                height: 30px;
+                text-align: center;
+            }
+
+            th {
+                font-family: 华文楷体;
+                font-size: 20px;
+                color: #fc5957;
+            }
+
+            .mytime {
+                text-align: center;
+                font-family: 华文隶书;
+                color: #629dfa;
+                font-size: 22px;
+            }
+
+            #mypoem-copy {
+                font-family: 华文中宋;
+                font-size: x-small;
+                color: #629dfa;
+            }
+
+            /*小火箭的阴影效果，但是效果不太理想*/
+            .effect {
+                position: relative;
+                -webkit-box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.1), 0px 0px 20px rgba(0, 0, 0, 0.2) inset;
+                -moz-box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.1), 0px 0px 20px rgba(0, 0, 0, 0.2) inset;
+                box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.1), 0px 0px 20px rgba(0, 0, 0, 0.2) inset;
+            }
+
+        </style>
+
+        <!-- 使用了jquery -->
+        <!--  <script src="http://code.jquery.com/jquery-3.4.0.min.js"/>-->
+    </head>
+    <body>
+        <a href="index.html#indextop">跳转到首页</a>
+        <a name="top"/>
+        <p id="qiangjingjiu">
+            将进酒<br/>
+            <span id="poet">唐·李白</span><br/>
+            君不见黄河之水天上来，奔流到海不复回。<br/>
+            君不见高堂明镜悲白发，朝如青丝暮成雪。<br/>
+            人生得意须尽欢，莫使金樽空对月。<br/>
+            天生我材必有用，千金散尽还复来。<br/>
+            烹羊宰牛且为乐，会须一饮三百杯。<br/>
+            岑夫子，丹丘生，将进酒，杯莫停。<br/>
+            与君歌一曲，请君为我倾耳听。<br/>
+            钟鼓馔玉不足贵，但愿长醉不复醒。<br/>
+            古来圣贤皆寂寞，惟有饮者留其名。<br/>
+            陈王昔时宴平乐，斗酒十千恣欢谑。<br/>
+            主人何为言少钱，径须沽取对君酌。<br/>
+            五花马、千金裘，呼儿将出换美酒，与尔同销万古愁。<br/>
+        </p>
+        <hr/>
+        <p id="wodeshi">
+            <input title="" type="text" readonly value="我的诗" placeholder="我的诗" style="text-align: center;
+            border-style: none; font-size: 20px;">
+            <br/>
+            <textarea placeholder="请输入您的诗歌内容" style="border-radius: 15px; border-color: hotpink;" id="mypoem"
+                      rows="20" cols="50" oninput="write2side();"></textarea>
+            <textarea placeholder="请输入您的诗歌内容" style="border-radius: 15px; border-color: darkturquoise;" id="mypoem-copy"
+                      rows="20" cols="50" readonly></textarea>
+        </p>
+        <hr/>
+        <img src="./images/qiangjingjiu.gif" alt="李白将进酒书法作品" title="李白将进酒书法作品">
+        <hr/>
+        <img src="./images/qiangjinjiu.gif" alt="李白将进酒书法作品" title="李白将进酒书法作品">
+        <hr/>
+        <img src="./images/qiangjinjiu2.jpg" alt="李白将进酒书画作品" title="李白将进酒书画作品">
+
+        <hr>
+        <a href="#top">回到顶部</a>
+        <a href="#top" style="padding-left: 90%">回到顶部</a>
+        <table title="表格" id="mytable" border="1px" style="border-style: inset; border-color: #7f8434;
+               border-radius: initial" about="hello table">
+            <th>序列</th>
+            <!-- colspan列合并 -->
+            <th colspan="4">学科</th>
+            <tr>
+                <!-- rowspan行合并 -->
+                <td rowspan="2" class="mytime">上午</td>
+                <td>语文</td>
+                <td>英语</td>
+                <td>数学</td>
+                <td>历史</td>
+            </tr>
+            <tr>
+                <td>化学</td>
+                <td>物理</td>
+                <td>音乐</td>
+                <td>生物</td>
+            </tr>
+            <tr>
+                <td colspan="5" class="mytime">午休</td>
+            </tr>
+            <tr>
+                <td rowspan="2" class="mytime">下午</td>
+                <td>英语</td>
+                <td>体育</td>
+                <td>化学</td>
+                <td>生物</td>
+            </tr>
+            <tr>
+                <td>劳动</td>
+                <td>体育</td>
+                <td>物理</td>
+                <td>数学</td>
+            </tr>
+        </table>
+        <br/>
+        <p id="back-top" style="display: block; padding-left: 93%; padding-bottom: 3%;" transparent;>
+            <a href="#top" title="回到顶部">
+                <span><img src="./images/rocket2-2.png" class="effect" style="padding-left: 0px"></span>
+            </a>
+        </p>
+        <script>
+            function write2side() {
+                // 获取信息
+                let value = document.getElementById('mypoem').value;
+                // 设置值
+                document.getElementById("mypoem-copy").value = value;
+                // let value2 = document.getElementById("mypoem-copy").value;
+                // console.log(value2)
+            }
+        </script>
+    </body>
+</html>

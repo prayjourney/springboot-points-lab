@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>css的高级玩法</title>
+        <style>
+            #s1 {
+                width: 100px;
+                height: 100px;
+                border-radius: 50px;
+                background-color: #3388bb;
+            }
+
+            img {
+                border-radius: 500px;
+                /*盒子阴影*/
+                box-shadow: 10px 10px 50px yellow;
+            }
+
+            div {
+                color: #ff0036;
+            }
+
+            div.inline {
+                color: tomato;
+                font-size: 18px;
+
+                display: inline-block;
+            }
+
+            #father {
+                border: 2px #66cbfa solid;
+                /*方法1: 父级元素增加高度*/
+                /*height: 900px;*/
+                /*方法2: 父级元素增加overflow属性*/
+                /*overflow: auto;*/
+                /*overflow: hidden;*/ /*auto和hidden效果一样*/
+            }
+
+            /*方法4: 使用伪类，增加小的块属性*/
+            #father:after {
+                content: "";
+                display: block;
+                clear: both;
+            }
+
+            .layer01 {
+                border: 1px #ff0036 solid;
+                display: inline-block;
+                float: left;
+            }
+
+            .layer02 {
+                border: 1px #ff0036 solid;
+                display: inline-block;
+                float: left;
+            }
+
+            .layer03 {
+                border: 1px #ff0036 solid;
+                display: inline-block;
+                float: right;
+                line-height: 25px;
+                clear: both;
+            }
+
+            .layer04 {
+                border: 1px #ff0036 solid;
+                display: inline-block;
+                float: right;
+                line-height: 50px;
+                clear: right;
+            }
+
+            .clear {
+                clear: both;
+                margin: 0px;
+                padding: 0px;
+            }
+
+            #testdiv {
+                width: 200px;
+                height: 100px;
+                overflow: scroll;
+            }
+
+            #mybox {
+                padding: 10px;
+                margin: 10px;
+                border: #ff0036 1px solid;
+            }
+
+            #first {
+                color: #3388bb;
+                background-color: #fca7ff;
+                border: 1px #32fa4a dotted;
+                position: relative;
+                top: 5px;
+                right: -20px;
+            }
+
+            #second {
+                color: #a32cff;
+                background-color: #9ef7ff;
+                border: 1px #fa2e3a dashed;
+            }
+
+            #third {
+                color: orangered;
+                background-color: #ffe743;
+                border: 1px #22fa3f dotted;
+            }
+
+            #forbox {
+                padding: 10px;
+                margin: 10px;
+                border: 2px tomato solid;
+                width: 300px;
+                height: 300px;
+            }
+
+            a {
+                padding: 0px;
+                margin: 0px;
+                border: 1px #3452ff solid;
+                background-color: #e7ffb6;
+                width: 100px;
+                height: 100px;
+                display: block;
+                text-decoration: none;
+                line-height: 100px;
+                text-align: center;
+                color: #7c54ff;
+                font-size: 20px;
+                font-family: 方正粗黑宋简体;
+            }
+
+            a:hover {
+                background-color: #ff9296;
+            }
+
+            #a2, #a4 {
+                position: relative;
+                left: 202px;
+                top: -102px;
+            }
+
+            #a3 {
+                position: relative;
+                top: -3px;
+            }
+
+            #a4 {
+                position: relative;
+                top: -104px;
+            }
+
+            #a5 {
+                position: relative;
+                left: 101px;
+                top: -307px;
+            }
+
+            #box2 {
+                padding: 10px;
+                margin: 10px;
+                border: #ff0036 1px solid;
+            }
+
+            #one {
+                padding: 300px;
+                background-color: #7f8434;
+                border: 1px salmon solid;
+                width: 100px;
+                height: 20px;
+                position: fixed;
+                display: block;
+            }
+
+            #two {
+                padding: 20px;
+                background-color: whitesmoke;
+                border: 2px salmon dashed;
+                width: 100px;
+                height: 20px;
+                position: absolute;
+
+            }
+
+            #mycontent {
+                padding: 5px;
+                margin: 5px;
+                font-size: 22px;
+                line-height: 25px;
+                border: 1px #fac54b solid;
+            }
+
+            #myimg {
+                border-radius: 300px 0px 300px 0px;
+                box-shadow: 10px 10px 30px lightpink;
+            }
+
+            ul li {
+                padding: 0px;
+                margin: 0px;
+                list-style: none;
+            }
+
+            /*父级元素相对定位*/
+            #mycontent li {
+                position: relative;
+            }
+
+            .tipBg, .tipText {
+                position: absolute;
+                width: 300px;
+                height: 25px;
+                top: -70px;
+            }
+
+            .tipText {
+                color: #66cbfa;
+                z-index: 0; /*图层，默认是0，最大无限*/
+            }
+
+            .tipBg {
+                background: #3388bb;
+                opacity: 0.5; /*背景透明度*/
+            }
+
+        </style>
+    </head>
+    <body>
+        <!-- 锚点设置为不显示 -->
+        <a name="top" style="display: none"></a>
+        <div id="s1">
+
+        </div>
+        <img src="images/lf1.jpg">
+        <hr>
+        <div>首页</div>
+        <div>生活</div>
+        <div>资讯</div>
+        <div>体育</div>
+        <div>卫生</div>
+        <div>医疗</div>
+        <div>人文</div>
+        <br/>
+        <hr>
+        <div class="inline">首页</div>
+        <div class="inline">生活</div>
+        <div class="inline">资讯</div>
+        <div class="inline">体育</div>
+        <div class="inline">卫生</div>
+        <div class="inline">医疗</div>
+        <div class="inline">人文</div>
+        <br/>
+        <br/>
+        <br/>
+        <div id="father">
+            <div class="layer01"><img src="images/lf2.png" alt=""></div>
+            <div class="layer02"><img src="images/lf2.png" alt=""></div>
+            <div class="layer03">浮动的盒子可以左浮动也可以右边浮动</div>
+            <div class="layer04"><img src="images/lf2.png" alt=""></div>
+        </div>
+        <!-- 方法3: 增加一个新的空div -->
+        <!-- <div class="clear"><span>123, hello world!</span></div>-->
+
+        <hr>
+        <div id="testdiv">
+            CSS的优势：
+            1、内容和表现分离；
+            2、网页结构表现统一，可以实现复用
+            3、样式十分的丰富
+            4、建议使用独立于html的css文件
+            5、利用SEO，容易被搜索引擎收录！
+        </div>
+        <hr/>
+        <div id="mybox">
+            <div id="first">第一个盒子</div>
+            <div id="second">第二个盒子</div>
+            <div id="third">第三个盒子</div>
+        </div>
+
+        <div id="forbox">
+            <a id="a1" href="#">链接1</a>
+            <a id="a2" href="#">链接2</a>
+            <a id="a3" href="#">链接3</a>
+            <a id="a4" href="#">链接4</a>
+            <a id="a5" href="#">链接5</a>
+        </div>
+        <br/>
+        <br/>
+
+        <div id="one">第1个盒子</div>
+        <p><span>张三的歌</span></p>
+        <div id="two">第2个盒子</div>
+
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <hr/>
+        <div id="mycontent">
+            <ul>
+                <li><img id="myimg" src="images/lf1.jpg"></li>
+                <li class="tipText">学习加油啊！</li>
+                <li class="tipBg"></li>
+                <li>时间：2099-09-09</li>
+                <li>地点：月球一号基地</li>
+            </ul>
+        </div>
+
+
+    </body>
+</html>

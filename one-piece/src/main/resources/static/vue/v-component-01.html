@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>使用v-component</title>
+        <style>
+            #mm {
+                border-width: 10px;
+                height: 10px;
+            }
+        </style>
+    </head>
+    <body>
+        <!-- view层模版 -->
+        <div id="app">
+            <ol>
+                <!-- 创建一个 my-item 组件的实例, 相当于是使用自定义的标签 -->
+                <my-item v-bind:thing="thing"></my-item>
+            </ol>
+        </div>
+        <hr/>
+
+        <div id="app-7">
+            <ol>
+                <todo-item
+                        v-for="item in groceryList"
+                        v-bind:todo="item"
+                        v-bind:key="item.id"
+                ></todo-item>
+            </ol>
+        </div>
+
+        <hr/>
+
+        <div id="mypoem">
+            <poem v-for="word in zengwanglun" v-bind:words="word"></poem>
+        </div>
+        <!-- 导入vue.js -->
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
+        <script>
+            Vue.config.devtools = true
+            // 定义名为 my-item 的新组件
+            Vue.component('my-item', {
+                // my-item组件现在接受一个属性，这个属性是用来传递数据的
+                // "prop"，类似于一个自定义 attribute。这个 prop 名为 do-thing。
+                props: ['thing'],
+                template: '<li>{{ thing }}</li>'
+            })
+
+            let vm = new Vue({
+                el: "#app",
+                data: {
+                    thing: "hello"
+                }
+
+            });
+
+            Vue.component('todo-item', {
+                props: ['todo'],
+                template: '<li>{{ todo.text }}</li>'
+            })
+
+            var app7 = new Vue({
+                el: '#app-7',
+                data: {
+                    groceryList: [
+                        {id: 0, text: '蔬菜'},
+                        {id: 1, text: '奶酪'},
+                        {id: 2, text: '随便其它什么人吃的东西'}
+                    ]
+                }
+            })
+
+            // 定义了一个名为poem的组件， props是船体的数据，template是这个组件要代表的一个模板，模板其中使用了props提供的数据
+            // 在html的数据之中，我们则通过循环，判断，绑定等方式去让其显示出来
+            Vue.component("poem", {
+                props: ['words'],
+                template: '<p>{{ words.sentence }}</p>'
+            })
+
+            let pm = new Vue({
+                el: "#mypoem",
+                data: {
+                    zengwanglun: [
+                        {sentence: "李白乘舟将欲行"},
+                        {sentence: "忽闻岸上踏歌声"},
+                        {sentence: "桃花潭水深千丈"},
+                        {sentence: "不及汪伦赠我情"}
+                    ]
+                }
+            });
+        </script>
+    </body>
+</html>

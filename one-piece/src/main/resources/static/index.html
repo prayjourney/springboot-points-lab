@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>springboot2.x-integration: springboot2.x技术整合</title>
+        <style type="text/css">
+            h1, h3 {
+                font-family: "微软雅黑 Light";
+                color: darkorchid;
+            }
+
+            span {
+                font-size: small;
+                color: darkorange;
+            }
+
+            #a1, #a2, #a3, #a4, #a5 {
+                color: deepskyblue;
+                text-decoration: none;
+            }
+
+            /*小火箭的阴影效果，但是效果不太理想*/
+            .effect {
+                position: relative;
+                -webkit-box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.1), 0px 0px 20px rgba(0, 0, 0, 0.2) inset;
+                -moz-box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.1), 0px 0px 20px rgba(0, 0, 0, 0.2) inset;
+                box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.1), 0px 0px 20px rgba(0, 0, 0, 0.2) inset;
+            }
+
+            /*后代选择器*/
+            form[id=upfile] input {
+                border-radius: 5px 5px 5px 5px;
+                border-color: #ff70ad;
+                font-size: 12px;
+                color: #551A8B;
+                float: left;
+                margin-right: 100px;
+                display: block;
+                width: 200px;
+                height: 25px;
+            }
+
+            /*这个上传框，设置好像不起作用的啊？*/
+            input#file-upload-button {
+                color: darkviolet;
+            }
+
+        </style>
+        <!-- 使用了jquery -->
+        <script src="http://code.jquery.com/jquery-3.4.0.min.js"></script>
+    </head>
+    <body>
+        <!-- a标签的name属性是干嘛的呢? 锚点? --锚点，可以用于跳转 -->
+        <!-- a标签的锚点，可以用于页面间跳转或者页面内跳转定位-->
+        <a name="indextop"></a>
+        <h1>springboot2.x-integration</h1>
+        <h3>
+            整合springboot2.x, mybatis, mybatis plus, druid数据库连接池, shiro, elasticsearch, quartz, threadpool, 上传下载文件, 使用webuploader
+            进行大文件上传, 完成了上传于秒传功能, 使用easyexcel处理excel文件等几项技术。主要是对springboot之中常用的技术进行了一个整合，每个技术的使用可以参看
+            application.properties配置文件与config包之中查看除了上面的技术之外，还有spring-session技术，使用了logback作为日志记录。使用了mysql与MongoDB存储，
+            redis作为缓存。
+        </h3>
+
+        <h2>Elastic Search 测试</h2>
+        <a href="/jd/" style="color: #ff70ad">点击到达京东搜索页面</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="jd_info.html">京东说明</a>
+        <br/>
+        <br/>
+
+        <h2>测试 shiro <a id="a5" style="border-style: dot-dash solid" href="/shiro/logout">退出</a></h2>
+        <a id=a1 href="/shiro/addmsg">添加msg!<span>需要验证，没有权限的话，跳转到登陆页面，在ShiroConfig之中配置好了</span></a><br>
+        <a id=a2 href="/shiro/getmsg">获取msg!<span>不需要验证</span></a><br>
+        <a id=a3 href="/shiro/getmoney">取1000元!<span>需要验证，权限验证</span></a><br>
+        <a id=a4 href="/shiro/getallinfo">获取所有的信息!<span>需要验证，角色验证</span></a><br>
+        <br/>
+
+        <!-- 如果没input或者select没有name,name就不会序列化到他 -->
+        <h2>form表单序列化为json</h2>
+        <form id="myForm" method="post">
+            stName: <input type='text' name='stName'> &nbsp;&nbsp;&nbsp;&nbsp;
+            stAge: <input type='text' name='stAge'>&nbsp;&nbsp;&nbsp;&nbsp;
+            classId: <input type='text' name='classId'>&nbsp;&nbsp;&nbsp;&nbsp;
+            stHome: <select name="stHome" style="width:80px; height:22px; margin-right: 20px;">
+            <option selected="selected">北京</option>
+            <option>成都</option>
+            <!-- 设置南京无法选择 -->
+            <option disabled>南京</option>
+            <option>杭州</option>
+            <option>武汉</option>
+        </select>
+            <input id="tijiao" type="submit" value="提交" onclick="tijiaomethod()"/>
+        </form>
+        <br/>
+
+        <h2>测试Token生成</h2>
+        <a href="tokenHtml.html" name="登录产生token">登录产生token</a>
+        <a href="/kidtoken/getmessage" name="token验证">token验证</a>
+        <a href="/kidtoken/getmessagenotoken" name="跳过token验证">跳过token验证</a>
+        <br/>
+        <br/>
+
+        <h2>集成Swagger</h2>
+        <a href="swagger-ui.html">点击查看swagger接口</a>
+        <br/>
+        <br/>
+
+        <h2>Kaptcha验证码</h2>
+        <a href="yanzhengma.html">Kaptcha验证码页面</a>
+        <br/>
+        <br/>
+
+        <h2>Hutool验证码</h2>
+        <a href="yanzhengma_hutool.html">Hutool验证码</a>
+        <br/>
+        <br/>
+
+        <!-- 最原始的上传文件的前端控件，一般的小文件上传用这个就行了 -->
+        <h2>原始的上传文件的控件</h2>
+        <form id="upfile" action='/uploadFile' enctype="multipart/form-data" method='post'>
+            <input type="file" name="file"/> <!-- 这个是上传文件的一个关键的地方，type是file -->
+            <!-- <input type='hidden' name='userid'> -->
+            <!-- <input type='hidden' name='signature'> -->
+            <input type="submit" value="提交"/>
+        </form>
+        <br>
+        <br>
+        <!-- 模态对话框的页面，上面是直接使用的form表单 -->
+        <a href="upfile.html">模态对话框的上传页面</a>
+        <br>
+        <br/>
+
+        <h2>大文件上传</h2>
+        <a href="bigfileupload.html">大文件上传</a>
+        <br/>
+        <br/>
+
+        <h2>生成二维码</h2>
+        <a href="qrcode.html">生成二维码页面</a>
+
+        <a href="simpleH5.html#top" title="跳转到html5练习页面" style="display: block; color: darkviolet; padding-left: 90%">
+            跳转到html5练习页面
+        </a>
+        <a href="highcss3.html#top" title="跳转到css特效练习页面" style="display: block; color: darkviolet; padding-left: 90%">
+            跳转到html5练习页面
+        </a>
+        <p id="back-top" style="display: block; padding-left: 93%; padding-bottom: 3%;" transparent;>
+            <a href="#top" title="回到顶部">
+                <span><img src="./images/rocket2-2.png" class="effect" style="padding-left: 0px"></span>
+            </a>
+        </p>
+
+        <script type="text/javascript">
+            <!--序列化form数据，然后传递给后端处理  -->
+            let formData = $("#myForm").serialize();
+            console.log(formData)
+            //下面这种就是只要页面一刷新或者加载就会去执行
+            //$(function () {
+            //    $("#tijiao").click(function () {
+            //        $.post("/student/info", function (formData) {
+            //            console.log(formData);
+            //        })
+            //    })
+            //})
+
+            // 下面这种不起作用
+            //$("#tijiao").click(function () {
+            //    $.post("/student/info", function (formData) {
+            //        console.log(formData);
+            //    })
+            //})
+
+            // 这种才会是正宗的处理方法
+            function tijiaomethod() {
+                let formDataTemp = $("#myForm").serialize();
+                // jquery form表单.serialize()序列化后中文乱码问题原因及解决
+                // https://blog.csdn.net/w1014074794/article/details/43987689
+                let formData = decodeURIComponent(formDataTemp, true);
+                console.log(formData)
+                // $.post("/student/info", function (formData) {
+                //     console.log(formData);
+                // })
+                $.ajax({
+                    type: "POST",
+                    url: "/student/info",
+                    dataType: "text",
+                    data: {"info": formData},
+                    success: function (data) {
+                        console.log(data)
+                    }
+                })
+                // 这样相当于新开了一个页面
+                window.open("studentinfo.html")
+            }
+
+        </script>
+    </body>
+</html>
