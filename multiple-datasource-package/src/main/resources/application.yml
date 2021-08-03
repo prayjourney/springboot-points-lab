@@ -1,5 +1,5 @@
 server:
-  port: 8188 # 启动端口
+  port: 8189 # 启动端口
 spring:
   datasource:
     db1: # 数据源1
