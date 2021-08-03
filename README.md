@@ -13,17 +13,21 @@ Solutions to various problems of springboot，springboot的各种问题的解决
 ---
 ### <font color="39CEE2">涉及技术</font>
 
-| 🍅 |   ⚽   |  🌷  |   🎃   |  🎡  |   ✨   |   📚   |
+|       **后端技术**        |                             |                                 |                                   |                                 |                     |                                 |
 | :----: | :----: | :----: | :----: | :----: | :----: | :----: |
+| 🍅 |   ⚽   |  🌷  |   🎃   |  🎡  |   ✨   |   📚   |
 | [Springboot](#Springboot) | [Mysql](#Mysql) | [Mybatis](#Mybatis) | [MybatisPlus](#MybatisPlus) | [druid](#druid) | [MongoDb](#MongoDb) | [Redis](#Redis) |
 | 👕 | 🧸 | 🏹 | ⏰ | 🏀 | ⚾ | 🧣 |
 | [maven](#maven) | [file-upload](#file-upload) | [big-file-upload](#file-upload) | [Quartz](#Quartz) | [Swagger](#Swagger) | [Knife4j](#Knife4j) | [thread-pool](#thread-pool) |
 |   📐   |  🌍 | 🎯 | 🎱  |   📈   |   🎆  | 🚀 |
 |[Kaptcha](#Kaptcha) | [qrcode](#qrcode) | [Shiro](#Shiro) | [springsecurity](#springsecurity) | [springsession](#springsession) | [jwt](#jwt) |[ElasticSearch](#ElasticSearch)|
-|📄 | 🎁 | 🔨 | ✨ | 🐋 |  ||
-|[logback](#logback) | [Zipkin](#Zipkin) | [hutool](#hutool) | [mail](#mail) | [docker](#docker)  |  ||
+|📄 | 🎁 | 🔨 | ✨ | 🐋 | 🚀 ||
+|[logback](#logback) | [Zipkin](#Zipkin) | [hutool](#hutool) | [mail](#mail) | [docker](#docker)  | [thinjar](#thinjar) ||
+| |  |  |  |  | ||
+|**前端技术** |  |  |  |  | ||
 |🥨 | 🥯 | 🍇 | 🍝 | 🥣 | 🥫 |🎫|
 |[html](#html) | [css](#css) | [Bootstrap](#Bootstrap) | [layui](#layui) | [javascript](#javascript) | [jQuery](#jQuery) |[Vue2](#Vue2)|
 |🍌 | 🥡 | 🎠 |  |  |  ||
 |[axios](#axios) | [nodejs](#nodejs) | [wangEditor](#wangEditor) |  |  |  ||
+| |  |  | | | ||
 

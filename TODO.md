@@ -26,6 +26,8 @@
 
 <hr style='background-color:skyblue;height:1px;border:none;'/>
 
+- [x] 把springboot的jar包打成thin jar
+
 - [ ] springboot整合线程池
 
 - [ ] springboot整合redis
