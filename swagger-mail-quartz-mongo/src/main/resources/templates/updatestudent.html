@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>更新学生</title>
+        <!-- 这样虽然可以获取到js, 但是没有办法使用-->
+        <!--<script src="/js/jquery-3.5.0.js"/>-->
+        <!-- 本地文件，也无法访问-->
+        <!--<script src="file:///D://jquery-3.5.0.js"/>-->
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <style type="text/css">
+            #students {
+                border-style: solid;
+                border-color: deepskyblue;
+                color: chocolate;
+                padding-left: 5px;
+                border-width: 1px
+            }
+
+            th {
+                border-style: solid;
+                border-width: 1px
+            }
+
+            td {
+                border-style: solid;
+                border-width: 1px
+            }
+
+            input.btn{
+                color: #fff;
+                background: #28abde;
+                border-radius: 2px;
+                border-style: initial;
+                font-family: "微软雅黑 Light";
+            }
+        </style>
+        <script type="text/javascript">
+            function f() {
+                window.alert('111');
+                console.log("111");
+            }
+
+            // 给编号赋值id, 每个id都不同的
+            $(".tdContent").each(function(){
+                $(this).attr('id',"tdContent"+$(this).index());
+                $(this).text("tdContent"+$(this).index())
+            })
+
+            // 删除学生
+            function deleteOne() {
+                $.ajax({
+                        url: "/deletestudentbyid",
+                        type: "POST", //请求的方法
+                        data:{"stId": $("#tdContent"+$(this).index()).val()},//获取对应的组件上的值,转换成int
+                        dataType: "json",
+                        success: function (data) {
+                            console.log(data);
+                            console.log(status);
+                            var myHtmlContent = "";
+                            // 信息核对成功
+                            if (null != data) {
+                                for (var i = 0; i < data.length; i++) {
+                                    myHtmlContent += "<tr>" +
+                                        "<td class ='tdContent'>" + data[i].stId + "</td>" +
+                                        "<td class ='tdContent'>" + data[i].stName + "</td>" +
+                                        "<td class ='tdContent'>" + data[i].stGender + "</td>" +
+                                        "<td class ='tdContent'>" + data[i].stGrade + "</td>" +
+                                        "<td class ='tdContent'>" + data[i].stClass + "</td>" +
+                                        "<td >" + "<input class= 'btn' type=button value='更新学生' " +
+                                        "onclick='updateStudent()' />" + "</td>" +
+                                        "<td >" + "<input class= 'btn' type=button value='删除学生' " +
+                                        "onclick='deleteOne()' />" + "</td>" +
+                                        "</tr>";
+                                }
+                            }
+                            $('#students').html(myHtmlContent)
+                        }
+                })
+
+            }
+
+            // 页面加载后，使用ajax， 装载入数据
+            // window.onload = function () {
+            function getAllStudent() {
+                $.ajax({
+                    url: "/allstudent",
+                    data: {},
+                    dataType: "json", // 处理ajax之中有数据，但是给页面赋值的时候为undefined的问题
+                    success: function (data, status) {
+                        console.log(data);
+                        console.log(status);
+                        var myHtmlContent = "";
+                        // 信息核对成功
+                        if (null != data) {
+                            for (var i = 0; i < data.length; i++) {
+                                myHtmlContent += "<tr>" +
+                                    "<td>" + data[i].stId + "</td>" +
+                                    "<td>" + data[i].stName + "</td>" +
+                                    "<td>" + data[i].stGender + "</td>" +
+                                    "<td>" + data[i].stGrade + "</td>" +
+                                    "<td>" + data[i].stClass + "</td>" +
+                                    "<td >" + "<input class= 'btn' type=button value='更新学生' " +
+                                    "onclick='updateStudent()' />" + "</td>" +
+                                    "<td >" + "<input class= 'btn' type=button value='删除学生' " +
+                                    "onclick='deleteOne()' />" + "</td>" +
+                                    "</tr>";
+                            }
+                        }
+                        $('#students').html(myHtmlContent)
+                    }
+                })
+            }
+
+            window.onload = getAllStudent();
+        </script>
+    </head>
+    <body>
+        <!-- test -->
+        <p>Hello world!</p>
+        <input class= "btn" type="button" value="Hello test!" onclick="f()"/>
+        <div>
+            <table id="allStudent" style="margin: 20px; border: deepskyblue;
+            border-width: thick; border-style: wave; border-width: 1px">
+                <th>学生id</th>
+                <th>学生姓名</th>
+                <th>学生性别</th>
+                <th>学生年级</th>
+                <th>学生班级</th>
+                <th id="updateOne">update</th>
+                <th id="deleteOne">delete</th>
+                <tbody id="students">
+
+                </tbody>
+            </table>
+            <input type="submit" value="获取学生信息" onclick="getAllStudent()">
+        </div>
+        <br>
+
+
+        <!--  在标签和id那块有问题，暂时就使用单纯的删除几个就行了-->
+        <!-- 这个是通过后台的方式去删除，然后完成删除这个动作，也能达到效果的，这是使用表单提交的方式-->
+        <form action="/updateStudentById" method="post">
+            学生&ensp;I&ensp;D：<input id="stId001" type="text" name="stId"><br>
+            学生姓名：<input id="stName001" type="text" name="stName"><br>
+            学生性别：<input id="stGender001" type="text" name="stGender"><br>
+            学生年级：<input id="stGrade001" type="text" name="stGrade"><br>
+            学生班级：<input id="stClass001" type="text" name="stClass"><br>
+            &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;
+            <input id="update01" type="submit" value="更新学生">
+        </form>
+        <a href="index.html">回到首页</a>
+
+        <!-- 通过前端的方式，使用ajax的异步通信的方式，调用后台的方法，然后操作dom，完成删除后局部刷新-->
+        <script type="text/javascript">
+            // 更新学生
+            function updateStudent() {
+                $.post({
+                    url: "/updateStudentById",
+                    data: {},
+                    dataType: "json",
+                    success: function (data) {
+                        console.log(data);
+                        // 信息核对成功
+                        if (data.toString() != '没有这个学生的信息' &&
+                            data.toString() != 'student info is error!') {
+                            var myHtmlContent = "";
+                            for (var i = 0; i < data.length; i++) {
+                                console.log(data[i].stId);
+                                console.log(data[i].stGender);
+
+                                myHtmlContent += "<tr>" +
+                                    "<td>" + data[i].stId + "</td>" +
+                                    "<td>" + data[i].stName + "</td>" +
+                                    "<td>" + data[i].stGender + "</td>" +
+                                    "<td>" + data[i].stGrade + "</td>" +
+                                    "<td>" + data[i].stClass + "</td>" +
+                                    "<td >" + "<input class= 'btn' type=button value='更新学生' " +
+                                    "onclick='updateStudent()' />" + "</td>" +
+                                    "<td >" + "<input class= 'btn' type=button value='删除学生' " +
+                                    "onclick='deleteOne()' />" + "</td>" +
+                                    "</tr>";
+                            }
+                        }
+                        $('#students').html(myHtmlContent)
+                    }
+                })
+            }
+        </script>
+    </body>
+</html>

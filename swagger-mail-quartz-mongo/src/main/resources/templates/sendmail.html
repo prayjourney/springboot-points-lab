@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>发送邮件</title>
+        <style>
+            #sendmailbtn {
+                color: #28abde;
+                font-family: 方正粗黑宋简体;
+                font-size: 20px;
+                border-style: inherit;
+                background: honeydew;
+            }
+        </style>
+        <script>
+            function sendMail() {
+                $.ajax({
+                    url: "/job/sendMailFixed",
+                    data: {
+                        to: "renjiaxin@126.com",
+                        subject: "ni好",
+                        content: "11111"
+                    },
+                    dataType: "json",
+                    success: function (data) {
+                        console.log(data)
+                        console.log("发送成功!")
+                    }
+                })
+
+            }
+        </script>
+    </head>
+    <body>
+        <input id="sendmailbtn" type="button" onclick="sendMail()" value="每3分钟发一个邮件"></input>
+        <br>
+        <br>
+        <br>
+        <form action="/sendmail" method="get">
+            接收邮箱地址: <input id="address" type="text" name="to"><br>
+            主&emsp;&emsp;&emsp;&emsp;题: <input id="subject" type="text" name="subject"><br>
+            内&emsp;&emsp;&emsp;&emsp;容: <input id="content" type="text" name="content"><br>
+            &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp;
+            <input id="submit" type="submit" name="发送邮件"><br>
+        </form>
+    </body>
+</html>

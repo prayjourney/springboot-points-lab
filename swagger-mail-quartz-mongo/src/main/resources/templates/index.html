@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Hello boot</title>
+        <style>
+            p {
+                font-family: "微软雅黑 Light";
+                font-size: 30px;
+                margin-left: 2px;
+                color: coral;
+            }
+
+            a:active {
+                color: slategray;
+            }
+
+            a:hover {
+                font-size: 30px;
+                color: deepskyblue;
+            }
+
+            #tixing {
+                color: #28abde;
+                font-family: 方正粗黑宋简体;
+                font-size: 20px;
+                border-style: inherit;
+                background: honeydew;
+            }
+
+            #nowTime {
+                color: #555dff;
+                font-family: 方正粗黑宋简体;
+                font-size: 24px;
+            }
+        </style>
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+
+    </head>
+    <body>
+        <p>这个项目是为了整合springboot，swagger，javamail, quartz, mongo的使用的demo</p>
+        <button id="tixing" onclick="getNowTime()">点击此行，每分钟都会更新时间:</button>
+        <span id="nowTime">nowtime</span><br>
+        <a href="swagger-ui.html">点此链接，查看项目的api接口</a>
+        <div id="aboutStudent" style="color: green">
+            <a href="/allstudent">所有学生</a><br>
+            <!-- 直接使用html页面, 就需要把html页面放到static目录下 -->
+            <!--
+            <a href="addstudent.html">添加学生</a><br>
+            <a href="deletestudent.html">删除学生</a><br>
+            <a href="updatestudent.html">更新学生</a><br>
+            <a href="querystudent.html">查询学生</a><br>
+            <a href="sendmail.html">发送邮件</a><br>
+            -->
+            <a href="/add">添加学生</a><br>
+            <a href="/delete">删除学生</a><br>
+            <a href="/update">更新学生</a><br>
+            <a href="/delete">查询学生</a><br>
+            <a href="/mail">发送邮件</a><br>
+        </div>
+
+        <!-- script的脚本，正常的时候，放在上面和下面都可以，但是一般要放在上面，保险一点-->
+        <script>
+            function getNowTime() {
+                $.ajax({
+                    url: "/job/getNowTime",
+                    method: "get",
+                    data: {},
+                    dataType: "json",
+                    success: function (data) {
+                        var htmlTime = data;
+                        console.log(htmlTime)
+                        $('#nowTime').html(htmlTime)
+                        //document.getElementById("nowTime").innerText = htmlTime;
+                    }
+                })
+            }
+        </script>
+    </body>
+</html>
