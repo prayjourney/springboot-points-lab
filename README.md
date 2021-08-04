@@ -21,7 +21,7 @@ Solutions to various problems of springboot，springboot的各种问题的解决
 | [maven](#maven) | [file-upload](#file-upload) | [big-file-upload](#file-upload) | [Quartz](#Quartz) | [Swagger](#Swagger) | [Knife4j](#Knife4j) | [thread-pool](#thread-pool) |
 |   📐   |  🌍 | 🎯 | 🎱  |   📈   |   🎆  | 🚀 |
 |[Kaptcha](#Kaptcha) | [qrcode](#qrcode) | [Shiro](#Shiro) | [springsecurity](#springsecurity) | [springsession](#springsession) | [jwt](#jwt) |[ElasticSearch](#ElasticSearch)|
-|📄 | 🎁 | 🔨 | ✨ | 🐋 | 🚀 ||
+|📄 | 🎁 | 🔨 | ✨ | 🐋 | 🐾 ||
 |[logback](#logback) | [Zipkin](#Zipkin) | [hutool](#hutool) | [mail](#mail) | [docker](#docker)  | [thinjar](#thinjar) ||
 | |  |  |  |  | ||
 |**前端技术** |  |  |  |  | ||
