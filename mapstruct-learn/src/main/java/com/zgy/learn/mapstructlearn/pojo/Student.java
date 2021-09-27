@@ -21,4 +21,5 @@ public class Student {
     private Integer gender;
     private Date birthday;
     private String home;
+
 }

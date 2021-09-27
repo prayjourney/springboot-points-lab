@@ -1,5 +1,9 @@
 package com.zgy.learn.mapstructlearn.vo;
 
+import lombok.Getter;
+import lombok.Setter;
+import lombok.experimental.Accessors;
+
 import java.util.Date;
 
 /**
@@ -8,10 +12,14 @@ import java.util.Date;
  * @date: created in 2021/9/27
  * @modified:
  */
+@Getter
+@Setter
+@Accessors(chain = true)
 public class StudentVo {
     private Integer studentId;
     private String name;
     private String gender;
     private Date birthday;
     private String homeLocation;
+
 }
