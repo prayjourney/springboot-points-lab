@@ -23,7 +23,6 @@ public interface StudentMapper {
             @Mapping(source = "gender", target = "gender", qualifiedByName = "convertGender"),
             @Mapping(source = "birthday", target = "birthday", dateFormat = "yyyy-MM-dd HH:mm:ss"),
             @Mapping(source = "home", target = "homeLocation"),
-
     })
     StudentVo student2Vo(Student student);
 
