@@ -15,6 +15,8 @@ public class MapstructLearnApplication {
      * https://mapstruct.org/
      * https://www.baeldung.com/mapstruct
      * https://www.cnblogs.com/mmzs/p/12735212.html
+     * https://blog.csdn.net/weixin_39047791/article/details/86611706 mapstruct+lombok冲突
+     * https://juejin.cn/post/6985445221425217572
      *
      * @param args
      */
