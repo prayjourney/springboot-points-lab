@@ -5,8 +5,6 @@ import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.Accessors;
 
-import java.util.Date;
-
 /**
  * @author: pray-journey.io
  * @description:
@@ -21,7 +19,8 @@ public class StudentVo {
     private Integer studentId;
     private String name;
     private String gender;
-    private Date birthday;
+    // 在Mapper之中进行了转换
+    private String birthday;
     private String homeLocation;
 
 }

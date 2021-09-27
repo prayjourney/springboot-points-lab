@@ -18,6 +18,7 @@ import org.mapstruct.factory.Mappers;
 public interface StudentMapper {
     StudentMapper mapper = Mappers.getMapper(StudentMapper.class);
 
+    // source是转换的源对象, target要转成的对象
     @Mappings({
             @Mapping(source = "id", target = "studentId"),
             @Mapping(source = "gender", target = "gender", qualifiedByName = "convertGender"),
@@ -33,4 +34,5 @@ public interface StudentMapper {
         }
         return "男";
     }
+
 }
