@@ -2,6 +2,7 @@ package com.zgy.learn.mapstructlearn.vo;
 
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 import lombok.experimental.Accessors;
 
 import java.util.Date;
@@ -14,6 +15,7 @@ import java.util.Date;
  */
 @Getter
 @Setter
+@ToString
 @Accessors(chain = true)
 public class StudentVo {
     private Integer studentId;
