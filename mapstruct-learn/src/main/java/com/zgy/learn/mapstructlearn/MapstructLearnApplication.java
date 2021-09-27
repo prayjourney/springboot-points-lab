@@ -17,6 +17,8 @@ public class MapstructLearnApplication {
      * https://www.cnblogs.com/mmzs/p/12735212.html
      * https://blog.csdn.net/weixin_39047791/article/details/86611706 mapstruct+lombok冲突
      * https://juejin.cn/post/6985445221425217572
+     * https://blog.csdn.net/qq122516902/article/details/87259752
+     * https://blog.csdn.net/wangxueqing52/article/details/87928948
      *
      * @param args
      */
