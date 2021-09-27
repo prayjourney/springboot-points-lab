@@ -1,7 +1,10 @@
 package com.zgy.learn.mapstructlearn;
 
+import com.zgy.learn.mapstructlearn.converter.RoomMapper;
 import com.zgy.learn.mapstructlearn.converter.StudentMapper;
+import com.zgy.learn.mapstructlearn.pojo.Room;
 import com.zgy.learn.mapstructlearn.pojo.Student;
+import com.zgy.learn.mapstructlearn.vo.RoomVo;
 import com.zgy.learn.mapstructlearn.vo.StudentVo;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -28,7 +31,11 @@ public class MapstructLearnApplication {
         student.setId(1).setName("张三").setGender(1).setBirthday(new Date()).setHome("bj");
         StudentVo vo = StudentMapper.mapper.student2Vo(student);
         System.out.println(vo);
-
+        System.out.println("===========================");
+        Room room = new Room();
+        room.setId(100).setStudent(student).setTime(new Date());
+        RoomVo roomVo = RoomMapper.mapper.building2Vo(room);
+        System.out.println(roomVo);
     }
 
 }
