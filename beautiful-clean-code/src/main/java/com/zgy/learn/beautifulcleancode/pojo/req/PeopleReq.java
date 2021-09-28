@@ -1,5 +1,9 @@
 package com.zgy.learn.beautifulcleancode.pojo.req;
 
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+import lombok.experimental.Accessors;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
@@ -17,6 +21,10 @@ import java.util.Date;
  * @date: created in 2021/9/28
  * @modified:
  */
+@Getter
+@Setter
+@ToString
+@Accessors(chain = true)
 public class PeopleReq {
     @Min(value = 0, message = "不能小于0")
     private Integer id;
