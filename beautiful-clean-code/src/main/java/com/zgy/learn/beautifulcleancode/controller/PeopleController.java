@@ -3,6 +3,7 @@ package com.zgy.learn.beautifulcleancode.controller;
 import com.zgy.learn.beautifulcleancode.pojo.req.PeopleReq;
 import com.zgy.learn.beautifulcleancode.service.PeopleService;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -31,7 +32,7 @@ public class PeopleController {
     }
 
     @PostMapping("/body/add")
-    public String addPeopleByBody(@Valid PeopleReq peopleReq) {
+    public String addPeopleByBody(@Validated PeopleReq peopleReq) {
         log.info(peopleReq.toString());
         return peopleService.ok();
     }
