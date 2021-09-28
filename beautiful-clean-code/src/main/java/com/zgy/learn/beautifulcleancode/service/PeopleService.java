@@ -1,6 +1,5 @@
 package com.zgy.learn.beautifulcleancode.service;
 
-import com.zgy.learn.beautifulcleancode.pojo.req.PeopleReq;
 import org.springframework.stereotype.Service;
 
 /**
@@ -11,7 +10,7 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class PeopleService {
-    public String addPeople(PeopleReq peopleReq) {
+    public String ok() {
         return "success";
     }
 }
