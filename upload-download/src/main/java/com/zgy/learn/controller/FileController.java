@@ -60,9 +60,9 @@ public class FileController {
 
         try {
             // 写入文件:方式1
-            file.transferTo(fileTempObj);
+            // file.transferTo(fileTempObj);
             // 写入文件:方式2
-            // FileUtil.writeBytes(file.getBytes(), fileTempObj);
+            FileUtil.writeBytes(file.getBytes(), fileTempObj);
         } catch (Exception e) {
             log.error("发生错误: {}", e);
             result.put("error", e.getMessage());
@@ -139,7 +139,7 @@ public class FileController {
 
     // 下载到了默认的位置
     @ResponseBody
-    @RequestMapping("/downloadFile")
+    @GetMapping("/downloadFile")
     public String fileDownload(HttpServletResponse response, @RequestParam("fileName") String fileName) throws JSONException, IOException {
         JSONObject result = new JSONObject();
 
@@ -181,7 +181,7 @@ public class FileController {
 
 
     @ResponseBody
-    @RequestMapping("/deleteFile")
+    @PostMapping("/deleteFile")
     public String deleteFile(HttpServletResponse response, @RequestParam("fileName") String fileName) throws JSONException {
         JSONObject result = new JSONObject();
 
