@@ -1,5 +1,6 @@
 package com.zgy.learn.controller;
 
+import cn.hutool.core.io.FileUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.configurationprocessor.json.JSONException;
@@ -13,9 +14,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletResponse;
-import java.io.BufferedInputStream;
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 
@@ -60,12 +59,13 @@ public class FileController {
         }
 
         try {
-            // 写入文件
+            // 写入文件:方式1
             file.transferTo(fileTempObj);
+            // 写入文件:方式2
+            // FileUtil.writeBytes(file.getBytes(), fileTempObj);
         } catch (Exception e) {
             log.error("发生错误: {}", e);
             result.put("error", e.getMessage());
-            // error -> 返回
             return result.toString();
         }
 
@@ -140,7 +140,7 @@ public class FileController {
     // 下载到了默认的位置
     @ResponseBody
     @RequestMapping("/downloadFile")
-    public String fileDownload(HttpServletResponse response, @RequestParam("fileName") String fileName) throws JSONException {
+    public String fileDownload(HttpServletResponse response, @RequestParam("fileName") String fileName) throws JSONException, IOException {
         JSONObject result = new JSONObject();
 
         File file = new File(uploadFilePath + '/' + fileName);
@@ -155,19 +155,26 @@ public class FileController {
         response.setContentLength((int) file.length());
         response.setHeader("Content-Disposition", "attachment;filename=" + fileName);
 
-        try (BufferedInputStream bis = new BufferedInputStream(new FileInputStream(file));) {
-            byte[] buff = new byte[1024];
-            OutputStream os = response.getOutputStream();
-            int i = 0;
-            while ((i = bis.read(buff)) != -1) {
-                os.write(buff, 0, i);
-                os.flush();
-            }
-        } catch (IOException e) {
-            log.error("发生错误: {}", e);
-            result.put("error", e.getMessage());
-            return result.toString();
-        }
+        // 原生的方式
+        // try (BufferedInputStream bis = new BufferedInputStream(new FileInputStream(file));) {
+        //     byte[] buff = new byte[1024];
+        //     OutputStream os = response.getOutputStream();
+        //     int i = 0;
+        //     while ((i = bis.read(buff)) != -1) {
+        //         os.write(buff, 0, i);
+        //         os.flush();
+        //     }
+        // } catch (IOException e) {
+        //     log.error("发生错误: {}", e);
+        //     result.put("error", e.getMessage());
+        //     return result.toString();
+        // }
+        // 简单方式: 方式1
+        // byte[] bytes = FileCopyUtils.copyToByteArray(file);
+        // 简单方式: 方式2
+        byte[] readBytes = FileUtil.readBytes(file);
+        OutputStream os = response.getOutputStream();
+        os.write(readBytes);
         result.put("success", "下载成功!");
         return result.toString();
     }
