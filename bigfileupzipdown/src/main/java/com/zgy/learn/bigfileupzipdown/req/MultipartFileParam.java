@@ -31,19 +31,16 @@ public class MultipartFileParam {
     /**
      * 当前为第几块分片
      */
-    @PositiveOrZero(message = "当前分片的标记要大于0")
     private int chunk;
 
     /**
      * 总分片数量
      */
-    @PositiveOrZero(message = "当前分片的标记要大于0")
     private int totalChunk;
 
     /**
      * 文件总大小, 单位是byte
      */
-    @Positive(message = "文件大小必须大于0")
     private long totalSize;
 
     /**
