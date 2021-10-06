@@ -1,10 +1,10 @@
-package com.zgy.learn.bigfile.upzipdown;
+package com.zgy.learn.bigfileupzipdown;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class UpzipdownApplicationTests {
+public class BigFileUpzipdownApplicationTests {
 
     @Test
     void contextLoads() {
