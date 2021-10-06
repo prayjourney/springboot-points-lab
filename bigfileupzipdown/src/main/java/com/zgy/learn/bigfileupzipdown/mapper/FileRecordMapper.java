@@ -1,9 +1,9 @@
 package com.zgy.learn.bigfileupzipdown.mapper;
 
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.zgy.learn.bigfileupzipdown.pojo.FileRecord;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
-
-import java.io.Serializable;
 
 /**
  * @author: pray-journey.io
@@ -13,7 +13,7 @@ import java.io.Serializable;
  */
 @Mapper
 @Repository
-public interface FileRecordMapper {
+public interface FileRecordMapper extends BaseMapper<FileRecord> {
 
 
 }

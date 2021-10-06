@@ -3,4 +3,16 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.zgy.learn.bigfileupzipdown.mapper.FileChunkRecordMapper">
 
+    <select id="queryByMd5" resultType="com.zgy.learn.bigfileupzipdown.pojo.FileChunkRecord">
+        SELECT
+            id,
+            file_id,
+            md5,
+            chunk,
+            upload_status
+        FROM
+            file_chunk_record
+        WHERE
+            md5 = #{md5};
+    </select>
 </mapper>
