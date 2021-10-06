@@ -5,6 +5,8 @@ import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.Accessors;
 
+import java.io.Serializable;
+
 /**
  * @author: pray-journey.io
  * @description:
@@ -15,7 +17,7 @@ import lombok.experimental.Accessors;
 @Setter
 @ToString
 @Accessors(chain = true)
-public class FileChunkRecord {
+public class FileChunkRecord implements Serializable {
 
     private static final long serialVersionUID = 1L;
     private Long id;
