@@ -1,5 +1,9 @@
 package com.zgy.learn.bigfileupzipdown.req;
 
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+import lombok.experimental.Accessors;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.validation.constraints.NotBlank;
@@ -13,6 +17,10 @@ import javax.validation.constraints.PositiveOrZero;
  * @date: created in 2021/10/6
  * @modified:
  */
+@Getter
+@Setter
+@ToString
+@Accessors(chain = true)
 public class MultipartFileParam {
     /**
      * 是否分片
