@@ -6,7 +6,6 @@
     <select id="queryByMd5" resultType="com.zgy.learn.bigfileupzipdown.pojo.FileChunkRecord">
         SELECT
             id,
-            file_id,
             md5,
             chunk,
             upload_status

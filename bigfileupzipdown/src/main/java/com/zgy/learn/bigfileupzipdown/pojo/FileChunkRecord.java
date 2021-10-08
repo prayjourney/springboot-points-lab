@@ -21,7 +21,6 @@ public class FileChunkRecord implements Serializable {
 
     private static final long serialVersionUID = 1L;
     private Long id;
-    private Long fileId;
     private String md5;
     private Integer chunk;
     /**
