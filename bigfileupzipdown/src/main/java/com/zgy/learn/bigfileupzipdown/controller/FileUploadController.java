@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
+import java.io.IOException;
 
 /**
  * @author: pray-journey.io
@@ -28,7 +29,7 @@ public class FileUploadController {
      * @return
      */
     @PostMapping(value = "upload")
-    public String upload(MultipartFileParam fileParam) {
+    public String upload(MultipartFileParam fileParam) throws IOException {
         return fileUploadService.fileUpload(fileParam);
     }
 
