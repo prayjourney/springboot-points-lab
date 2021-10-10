@@ -221,6 +221,8 @@ public class FileUploadService {
         record.setFileName(fileName).setFileMd5(fileMd5).setFileSize(sizeStr).setFilePath(filePath)
                 .setUploadStatus(1).setCreateTime(now).setUpdateTime(now);
         fileRecordMapper.insert(record);
+        // 删除分片文件的记录
+        fileChunkRecordMapper.deleteByMd5(fileMd5);
     }
 
 }
