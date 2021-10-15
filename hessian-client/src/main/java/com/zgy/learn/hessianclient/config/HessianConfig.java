@@ -1,16 +1,17 @@
-package com.zgy.learn.hessianclient.component;
+package com.zgy.learn.hessianclient.config;
 
 import com.zgy.learn.hessianclient.service.HelloService;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.remoting.caucho.HessianProxyFactoryBean;
-import org.springframework.stereotype.Component;
 
 /**
  * @author zgy
  * @date 2021/10/15
  */
-@Component
-public class HessianComponent {
+@Configuration
+public class HessianConfig {
+
     @Bean
     public HessianProxyFactoryBean hessianClient() {
         HessianProxyFactoryBean hessianProxyFactoryBean = new HessianProxyFactoryBean();
