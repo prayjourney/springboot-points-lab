@@ -7,6 +7,6 @@ package com.zgy.learn.hessianserver.service;
 public interface HelloService {
     public String sayHello();
 
-    public String sayHello(String name);
+    public String sayHelloWithName(String name);
 
 }
