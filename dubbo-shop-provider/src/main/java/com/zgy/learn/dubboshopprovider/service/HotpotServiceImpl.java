@@ -15,7 +15,7 @@ import java.util.stream.Collectors;
  * @author: pray-journey.io
  * @description:
  * @date: created in 2021/10/17
- * @modified:
+ * @modified: @DubboService表示暴露Dubbo服务
  */
 @Component
 @DubboService
