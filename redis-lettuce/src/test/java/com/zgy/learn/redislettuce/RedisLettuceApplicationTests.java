@@ -29,7 +29,7 @@ class RedisLettuceApplicationTests {
     public void getUser() {
         boolean hashKey = redisUtil.hashKey("1");
         if (hashKey) {
-            String user = (String) redisUtil.get("1");
+            User user = (User) redisUtil.get("1");
             System.out.println(user);
         } else {
             System.out.println("没有对象");
