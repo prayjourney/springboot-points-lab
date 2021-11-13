@@ -1,5 +1,6 @@
 package com.zgy.learn.redislettuce.utils;
 
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Component;
 import org.springframework.util.CollectionUtils;
@@ -20,6 +21,7 @@ import java.util.concurrent.TimeUnit;
 public class RedisUtil {
 
     @Resource
+    @Qualifier("redisTemplate")
     private RedisTemplate<String, Object> redisTemplate;
 
     /**
