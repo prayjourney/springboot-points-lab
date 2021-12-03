@@ -33,7 +33,13 @@ class XmlDealApplicationTests {
         }
     }
 
-
+    @Test
+    public void testCreateXMLByObject() {
+        Student student = new Student();
+        student.setId(1).setName("张三").setAge(12).setGender("男").setGrade("初二二班").setHome("红花堰");
+        String xmlStr = xmlService.createXml(student, "测试");
+        System.out.println(xmlStr);
+    }
 
     @Test
     public void testSimpleObj2Map() {
