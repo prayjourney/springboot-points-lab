@@ -1,7 +1,9 @@
 package com.zgy.learn.xmldeal;
 
 import com.zgy.learn.xmldeal.pojo.Student;
+import com.zgy.learn.xmldeal.pojo.Teacher;
 import com.zgy.learn.xmldeal.service.Dom4jXmlService;
+import com.zgy.learn.xmldeal.service.Pojo2XmlService;
 import com.zgy.learn.xmldeal.service.XmlService;
 import com.zgy.learn.xmldeal.utils.SimpleObject2MapUtil;
 import org.junit.jupiter.api.Test;
@@ -22,6 +24,8 @@ class XmlDealApplicationTests {
     private XmlService xmlService;
     @Resource
     private Dom4jXmlService dom4jXmlService;
+    @Resource
+    private Pojo2XmlService pojo2XmlService;
 
     @Test
     void contextLoads() {
@@ -70,6 +74,14 @@ class XmlDealApplicationTests {
     public void testParseXmlFromString() throws IOException {
         String strXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?> <Notification xmlns=\"http://mns.aliyuncs.com/doc/v1/\"> <TopicOwner>1692545896541241</TopicOwner> <TopicName>MyTopic</TopicName> <Subscriber>1692545896541241</Subscriber> <SubscriptionName>bing-test3</SubscriptionName> <MessageId>C39FB8C345BBFBA8-1-1687F6FAADD-200000015</MessageId> <MessageMD5>CAA1E9F5E9F854ACD8297B100BF8CCF9</MessageMD5> <Message>{\"jobId\":\"2384a4d89b1d4f1e869559e2ff8c9fad\",\"requestId\":\"639D1D03-1557-4AD7-9AD7-691F02834516\",\"Type\":\"Transcode\",\"state\":\"Success\",\"type\":\"Transcode\",\"State\":\"Success\",\"JobId\":\"2384a4d89b1d4f1e869559e2ff8c9fad\",\"RequestId\":\"639D1D03-1557-4AD7-9AD7-691F02834516\"}</Message> <PublishTime>1548326251229</PublishTime> </Notification>";
         dom4jXmlService.parseXmlFromString(strXML);
+    }
+
+    @Test
+    public void testObj2Xml() {
+        Teacher teacher = new Teacher();
+        teacher.setId(1).setAge(22).setGender("男").setHome("北京").setMajor("数学").setName("张三");
+        String xmlStr = pojo2XmlService.obj2Xml(teacher);
+        System.out.println(xmlStr);
     }
 
 }
