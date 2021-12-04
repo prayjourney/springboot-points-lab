@@ -1,12 +1,16 @@
 package com.zgy.learn.xmldeal;
 
 import com.zgy.learn.xmldeal.pojo.Student;
+import com.zgy.learn.xmldeal.service.Dom4jXmlService;
 import com.zgy.learn.xmldeal.service.XmlService;
 import com.zgy.learn.xmldeal.utils.SimpleObject2MapUtil;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.util.ResourceUtils;
 
 import javax.annotation.Resource;
+import java.io.File;
+import java.io.IOException;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
@@ -16,6 +20,8 @@ class XmlDealApplicationTests {
 
     @Resource
     private XmlService xmlService;
+    @Resource
+    private Dom4jXmlService dom4jXmlService;
 
     @Test
     void contextLoads() {
@@ -52,6 +58,18 @@ class XmlDealApplicationTests {
             String value = iterator.next().getValue().toString();
             System.out.printf("key: %s, value: %s\t", key, value);
         }
+    }
+
+    @Test
+    public void testParseXmlFromFile() throws IOException {
+        File file = ResourceUtils.getFile("classpath:xml-demo.xml");
+        dom4jXmlService.parseXmlFromFile(file);
+    }
+
+    @Test
+    public void testParseXmlFromString() throws IOException {
+        String strXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?> <Notification xmlns=\"http://mns.aliyuncs.com/doc/v1/\"> <TopicOwner>1692545896541241</TopicOwner> <TopicName>MyTopic</TopicName> <Subscriber>1692545896541241</Subscriber> <SubscriptionName>bing-test3</SubscriptionName> <MessageId>C39FB8C345BBFBA8-1-1687F6FAADD-200000015</MessageId> <MessageMD5>CAA1E9F5E9F854ACD8297B100BF8CCF9</MessageMD5> <Message>{\"jobId\":\"2384a4d89b1d4f1e869559e2ff8c9fad\",\"requestId\":\"639D1D03-1557-4AD7-9AD7-691F02834516\",\"Type\":\"Transcode\",\"state\":\"Success\",\"type\":\"Transcode\",\"State\":\"Success\",\"JobId\":\"2384a4d89b1d4f1e869559e2ff8c9fad\",\"RequestId\":\"639D1D03-1557-4AD7-9AD7-691F02834516\"}</Message> <PublishTime>1548326251229</PublishTime> </Notification>";
+        dom4jXmlService.parseXmlFromString(strXML);
     }
 
 }
