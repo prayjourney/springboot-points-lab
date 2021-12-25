@@ -1,8 +1,10 @@
 package com.zgy.learn.md5sha;
 
+import com.zgy.learn.md5sha.utils.md5.CommonMd5Util;
 import com.zgy.learn.md5sha.utils.md5.HutoolMd5Util;
 import com.zgy.learn.md5sha.utils.md5.OwnMd5Util;
 import com.zgy.learn.md5sha.utils.md5.SpringMd5Util;
+import com.zgy.learn.md5sha.utils.sha256.CommonSha256Util;
 import com.zgy.learn.md5sha.utils.sha256.HutoolSha256Util;
 import com.zgy.learn.md5sha.utils.sha256.OwnerSha256Util;
 import org.springframework.boot.SpringApplication;
@@ -19,9 +21,11 @@ public class Md5ShaApplication {
         System.out.println(HutoolMd5Util.md5String16("hello"));
         System.out.println(HutoolMd5Util.md5String32("hello"));
         System.out.println(SpringMd5Util.md5String("hello"));
+        System.out.println(CommonMd5Util.md5String("hello"));
         System.out.println(OwnMd5Util.md5String("hello"));
         System.out.println(HutoolSha256Util.sha256String("hello"));
         System.out.println(OwnerSha256Util.sha256String("hello"));
+        System.out.println(CommonSha256Util.sha256String("hello"));
 
     }
 
