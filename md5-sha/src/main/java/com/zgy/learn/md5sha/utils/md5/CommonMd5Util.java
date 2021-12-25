@@ -1,6 +1,5 @@
 package com.zgy.learn.md5sha.utils.md5;
 
-import cn.hutool.crypto.SecureUtil;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.springframework.stereotype.Component;
 
@@ -16,4 +15,5 @@ public class CommonMd5Util {
         String md5Str = DigestUtils.md5Hex(str);
         return md5Str;
     }
+
 }

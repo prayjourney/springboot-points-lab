@@ -15,4 +15,5 @@ public class CommonSha256Util {
         String md5Str = DigestUtils.sha256Hex(str);
         return md5Str;
     }
+
 }
