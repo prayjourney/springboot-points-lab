@@ -10,23 +10,23 @@ import org.springframework.context.annotation.Configuration;
 /**
  * @author: pray-journey.io
  * @date: created in 2021/12/22
- * @description:
+ * @description: https://www.cnblogs.com/huanggy/p/15151164.html, https://www.cnblogs.com/linyufeng/p/14591357.html
  */
 @Configuration
 public class SSLConfig {
-    @Value("${server.http.port}")
-    private int httpPort;
-
-    @Bean
-    public ServletWebServerFactory servletContainer() {
-        TomcatServletWebServerFactory tomcat = new TomcatServletWebServerFactory();
-        tomcat.addAdditionalTomcatConnectors(createStandardConnector());
-        return tomcat;
-    }
-
-    private Connector createStandardConnector() {
-        Connector connector = new Connector("org.apache.coyote.http11.Http11NioProtocol");
-        connector.setPort(httpPort);
-        return connector;
-    }
+//    @Value("${server.http.port}")
+//    private int httpPort;
+//
+//    @Bean
+//    public ServletWebServerFactory servletContainer() {
+//        TomcatServletWebServerFactory tomcat = new TomcatServletWebServerFactory();
+//        tomcat.addAdditionalTomcatConnectors(createStandardConnector());
+//        return tomcat;
+//    }
+//
+//    private Connector createStandardConnector() {
+//        Connector connector = new Connector("org.apache.coyote.http11.Http11NioProtocol");
+//        connector.setPort(httpPort);
+//        return connector;
+//    }
 }
