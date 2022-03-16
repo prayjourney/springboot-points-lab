@@ -2,6 +2,7 @@ package com.zgy.learn.bootgson.pojo;
 
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 import lombok.experimental.Accessors;
 
 import java.io.Serializable;
@@ -14,6 +15,7 @@ import java.io.Serializable;
  */
 @Getter
 @Setter
+@ToString
 @Accessors(chain = true)
 public class Monkey implements Serializable {
     public static final long serialVersionUID = 1L;
