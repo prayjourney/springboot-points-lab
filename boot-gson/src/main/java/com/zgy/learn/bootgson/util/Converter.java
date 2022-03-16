@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 
 /**
  * @author: pray-journey.io
- * @description:
+ * @description: Gson对象就是用来转化使用的, Gson的toJson转成json字符串, fromJson转成Object
  * @date: created in 2022/3/16
  * @modified:
  */
