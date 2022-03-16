@@ -12,7 +12,10 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 /**
  * Gson对象就是用来转化使用的, Gson的toJson转成json字符串, fromJson转成Object
@@ -83,5 +86,33 @@ class BootGsonApplicationTests {
             System.out.println(monkey.toString());
         }
     }
+
+    // map-->json
+    @Test
+    public void map2JsonTest() {
+        Map<String, PetHost> map = new HashMap<String, PetHost>();
+        PetHost petHost1 = new PetHost().setId("18239fg1").setAge(22).setGender(1).setName("张璇")
+                .setAddress("北京").setBirthday(new Date());
+        PetHost petHost2 = new PetHost().setId("18fg39oe1").setAge(25).setGender(0).setName("张天")
+                .setAddress("北京").setBirthday(new Date());
+        map.put("p1", petHost1);
+        map.put("p2", petHost2);
+        String gsonStr = gson.toJson(map);
+        System.out.println(gsonStr);
+    }
+
+    // json-->map
+    @Test
+    public void json2MapTest() {
+        String mapJsonStr = "{\"p1\":{\"id\":\"18239fg1\",\"name\":\"张璇\",\"age\":22,\"gender\":1,\"address\":\"北京\"," +
+                "\"birthday\":\"2022-03-17 01:17:25\"},\"p2\":{\"id\":\"18fg39oe1\",\"name\":\"张天\",\"age\":25,\"gender\":0,\"address\":\"北京\",\"birthday\":\"2022-03-17 01:17:25\"}}";
+        Map<String, PetHost> map = gson.fromJson(mapJsonStr, new TypeToken<Map<String, PetHost>>() {
+        }.getType());
+        Set<String> strings = map.keySet();
+        for (String key : strings) {
+            System.out.println(map.get(key).getName() + "--" + map.get(key).getAddress());
+        }
+    }
+
 
 }
