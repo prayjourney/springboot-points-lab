@@ -1,6 +1,7 @@
 package com.zgy.learn.bootgson;
 
 import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import com.zgy.learn.bootgson.pojo.Monkey;
 import com.zgy.learn.bootgson.pojo.PetHost;
 import com.zgy.learn.bootgson.pojo.ShibaInu;
@@ -14,7 +15,7 @@ import java.util.Date;
 import java.util.List;
 
 /**
- *  Gson对象就是用来转化使用的, Gson的toJson转成json字符串, fromJson转成Object
+ * Gson对象就是用来转化使用的, Gson的toJson转成json字符串, fromJson转成Object
  */
 @SpringBootTest
 class BootGsonApplicationTests {
@@ -28,7 +29,7 @@ class BootGsonApplicationTests {
 
     // javaBean-->json
     @Test
-    public void bean2Json() {
+    public void bean2JsonTest() {
         Monkey monkey = new Monkey().setId(1).setGender(0).setAge(3).setName("lily").setKind("金丝猴");
         PetHost petHost1 = new PetHost().setId("18239fg1").setAge(22).setGender(1).setName("张璇")
                 .setAddress("北京").setBirthday(new Date());
@@ -49,12 +50,38 @@ class BootGsonApplicationTests {
 
     // json-->javaBean
     @Test
-    public void json2Bean() {
+    public void json2BeanTest() {
         String shibaInuJsonStr = "{\"id\":1,\"age\":1,\"gender\":0,\"name\":\"kaka\",\"origin\":\"日本\"," +
                 "\"petHosts\":[{\"id\":\"18239fg1\",\"name\":\"张璇\",\"age\":22,\"gender\":1,\"address\":\"北京\",\"birthday\":\"2022-03-17 00:59:49\"},{\"id\":\"18fg39oe1\",\"name\":\"张天\",\"age\":25,\"gender\":0,\"address\":\"北京\",\"birthday\":\"2022-03-17 00:59:49\"}]}";
 
         ShibaInu shibaInu = gson.fromJson(shibaInuJsonStr, ShibaInu.class);
         System.out.println(shibaInu.toString());
+    }
+
+    // list-->json
+    @Test
+    public void list2JsonTest() {
+        List<Monkey> list = new ArrayList<>();
+        Monkey monkey1 = new Monkey().setId(1).setGender(0).setAge(3).setName("lily").setKind("金丝猴");
+        Monkey monkey2 = new Monkey().setId(2).setGender(0).setAge(4).setName("miqi").setKind("金丝猴");
+        list.add(monkey1);
+        list.add(monkey2);
+
+        String gsonStr = gson.toJson(list);
+        System.out.println(gsonStr);
+    }
+
+    // list-->json
+    @Test
+    public void json2ListTest() {
+        String listStr = "[{\"id\":1,\"age\":3,\"gender\":0,\"name\":\"lily\",\"kind\":\"金丝猴\"},{\"id\":2,\"age\":4," +
+                "\"gender\":0,\"name\":\"miqi\",\"kind\":\"金丝猴\"}]";
+        List<Monkey> monkeys = gson.fromJson(listStr, new TypeToken<List<Monkey>>() {
+        }.getType());
+        for (Monkey monkey : monkeys) {
+            System.out.println(monkey.getName());
+            System.out.println(monkey.toString());
+        }
     }
 
 }
