@@ -7,6 +7,7 @@ package com.zgy.learn.bootguava;
  * @modified:
  */
 
+import com.google.common.base.Objects;
 import com.google.common.base.Preconditions;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -76,5 +77,45 @@ public class GuavaPreconditionsTests {
         Preconditions.checkArgument(id > minIdBound, "id的值" + id + "不能比小于" + minIdBound, id, minIdBound);
     }
 
+    /**
+     * Objects.equal 和java.util.Objects.equals作用一样
+     */
+    @Test
+    public void testObjects01() {
+        boolean equal = Objects.equal(new PetHost(), new PetHost());
+        System.out.println(equal);
+    }
+
+    @Test
+    public void testObjects02() {
+        boolean equal = Objects.equal(127, new Integer(127));
+        System.out.println(equal);
+    }
+
+    @Test
+    public void testObjects03() {
+        boolean equal = Objects.equal(128, new Integer(128));
+        System.out.println(equal);
+    }
+
+    @Test
+    public void testObjects04() {
+        boolean equal = Objects.equal("128", new Integer(128));
+        System.out.println(equal);
+    }
+
+    @Test
+    public void testObjects05() {
+        boolean equal = Objects.equal("128", "128");
+        System.out.println(equal);
+    }
+
+    @Test
+    public void testObjects06() {
+        boolean equal01 = Objects.equal("128", new String("128"));
+        boolean equal02 = java.util.Objects.equals("128", new String("128"));
+        System.out.println(equal01);
+        System.out.println(equal02);
+    }
 
 }
