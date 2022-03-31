@@ -1,5 +1,6 @@
 package com.zgy.learn.beautifulcleancode.biz.result;
 
+import com.zgy.learn.beautifulcleancode.biz.exception.MessageCode;
 import lombok.Data;
 
 import java.io.Serializable;
@@ -17,6 +18,11 @@ public class Result implements Serializable {
     private Object data;
 
     public Result() {
+    }
+
+    public Result(MessageCode messageCode) {
+        this.code = messageCode.codeVal();
+        this.message = messageCode.messageVal();
     }
 
     public Result(int code, String message) {
