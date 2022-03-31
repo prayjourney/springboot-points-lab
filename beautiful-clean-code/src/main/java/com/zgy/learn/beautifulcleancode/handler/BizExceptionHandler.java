@@ -78,7 +78,7 @@ public class BizExceptionHandler {
         } else if (e instanceof DateTimeParseException) {
             return ResultUtil.error(MessageCode.ARGUMENT_ERROR);
         } else {
-            return ResultUtil.error(1000, "未知异常", e.getCause());
+            return ResultUtil.error(1000, "未知异常", e.getMessage());
         }
     }
 
