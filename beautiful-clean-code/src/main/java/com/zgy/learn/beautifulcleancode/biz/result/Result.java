@@ -25,6 +25,12 @@ public class Result implements Serializable {
         this.message = messageCode.messageVal();
     }
 
+    public Result(MessageCode messageCode, Object obj) {
+        this.code = messageCode.codeVal();
+        this.message = messageCode.messageVal();
+        this.data = obj;
+    }
+
     public Result(int code, String message) {
         this.code = code;
         this.message = message;

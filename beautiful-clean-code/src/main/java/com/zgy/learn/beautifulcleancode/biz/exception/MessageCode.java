@@ -15,6 +15,9 @@ public enum MessageCode {
     // 内部异常
     NULL_POINTER_ERROR(400, "空指针异常"),
     MATH_CACL_ERROR(401, "数学运算异常"),
+    ARGUMENT_CHECK_ERROR(402, "参数检查错误"),
+    ARGUMENT_BIND_ERROR(403, "参数绑定错误"),
+    MESSAGE_CONVERT_ERROR(404, "消息转换错误"),
 
     // 具体业务异常
     ARGUMENT_ERROR(500, "参数错误"),

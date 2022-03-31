@@ -33,6 +33,14 @@ public class ResultUtil {
         return result;
     }
 
+    public static Result error(MessageCode messageCode, Object obj) {
+        Result result = new Result();
+        result.setCode(messageCode.codeVal());
+        result.setMessage(messageCode.messageVal());
+        result.setData(obj);
+        return result;
+    }
+
     public static Result error(int code, String message) {
         Result result = new Result();
         result.setCode(code);

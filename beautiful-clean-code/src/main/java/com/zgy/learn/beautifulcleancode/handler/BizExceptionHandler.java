@@ -6,10 +6,12 @@ import com.zgy.learn.beautifulcleancode.biz.exception.SysException;
 import com.zgy.learn.beautifulcleancode.biz.result.Result;
 import com.zgy.learn.beautifulcleancode.biz.result.ResultUtil;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.validation.BindException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.validation.ConstraintViolationException;
 import java.time.format.DateTimeParseException;
 
 /**
@@ -77,8 +79,14 @@ public class BizExceptionHandler {
             return ResultUtil.error(MessageCode.MATH_CACL_ERROR);
         } else if (e instanceof DateTimeParseException) {
             return ResultUtil.error(MessageCode.ARGUMENT_ERROR);
+        } else if (e instanceof ConstraintViolationException) {
+            return ResultUtil.error(MessageCode.ARGUMENT_CHECK_ERROR, e.getMessage());
+        } else if (e instanceof BindException) {
+            return ResultUtil.error(MessageCode.ARGUMENT_BIND_ERROR, e.getMessage());
+        } else if (e instanceof BindException) {
+            return ResultUtil.error(MessageCode.MESSAGE_CONVERT_ERROR, e.getMessage());
         } else {
-            return ResultUtil.error(1000, "未知异常", e.getMessage());
+            return ResultUtil.error(1000, "其他异常", e.getMessage());
         }
     }
 
