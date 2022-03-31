@@ -37,6 +37,7 @@ public class PeopleController {
         return peopleService.ok();
     }
 
+    // 对象参数的校验
     @PostMapping("/body/add")
     public String addPeopleByBody(@Validated PeopleReq peopleReq) {
         log.info(peopleReq.toString());
