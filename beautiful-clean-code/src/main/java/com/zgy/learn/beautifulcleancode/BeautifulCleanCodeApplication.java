@@ -20,7 +20,7 @@ public class BeautifulCleanCodeApplication {
 
     }
 
-    // 抛出异常
+    // 抛出异常, 使用@SneakyThrows, 不去显式处理异常
     public static void check(People people) throws Exception {
         if (people.getSalary() < 500000) {
             throw new Exception("行走的50w");
