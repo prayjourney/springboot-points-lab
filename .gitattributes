@@ -1,2 +1,5 @@
 *.html linguist-language=java
 *.HTML linguist-language=java
+*.js linguist-language=java
+*.javascript linguist-language=java
+*.Javascript linguist-language=java
