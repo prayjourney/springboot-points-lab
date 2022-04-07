@@ -21,7 +21,7 @@ import java.util.Set;
  * Gson对象就是用来转化使用的, Gson的toJson转成json字符串, fromJson转成Object
  */
 @SpringBootTest
-class BootGsonApplicationTests {
+class GsonTests01 {
     @Autowired
     @Qualifier(value = "gsonsettype")
     private Gson gson;

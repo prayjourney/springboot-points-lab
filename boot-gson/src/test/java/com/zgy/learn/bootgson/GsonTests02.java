@@ -13,7 +13,7 @@ import java.util.Date;
  * Gson对象就是用来转化使用的, Gson的toJson转成json字符串, fromJson转成Object
  */
 @SpringBootTest
-class OtherGsonTests {
+class GsonTests02 {
     @Autowired
     @Qualifier(value = "gsonsettype")
     private Gson gson;
