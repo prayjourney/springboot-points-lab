@@ -8,7 +8,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @author: pray-journey.io
  * @date 2022/4/9
  */
-@EnableAdminServer
+@EnableAdminServer // 开启Spring-Boot-Admin的服务端
 @SpringBootApplication
 public class BootAdminServerApplication {
 
