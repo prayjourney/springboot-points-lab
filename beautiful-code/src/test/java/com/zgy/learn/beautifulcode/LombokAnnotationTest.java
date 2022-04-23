@@ -9,7 +9,7 @@ import lombok.SneakyThrows;
 
 /**
  * @author: pray-journey.io
- * @description:
+ * @description: lombok的几个注解的使用和测试
  * @date: created in 2022/4/8
  * @modified:
  */
