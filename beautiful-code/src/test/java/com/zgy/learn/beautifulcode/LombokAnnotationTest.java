@@ -1,8 +1,10 @@
 package com.zgy.learn.beautifulcode;
 
 import com.google.common.base.Preconditions;
+import com.zgy.learn.beautifulcode.pojo.Game;
 import com.zgy.learn.beautifulcode.pojo.People;
 import com.zgy.learn.beautifulcode.pojo.User;
+import com.zgy.learn.beautifulcode.pojo.req.PeopleReq;
 import lombok.SneakyThrows;
 
 /**
@@ -15,6 +17,7 @@ public class LombokAnnotationTest {
 
     @SneakyThrows
     public static void main(String[] args) {
+        // @Builder
         User.UserBuilder builder = User.builder();
         User buildUser = builder.id(1).address("深圳").email("helloworld@kkk.com").salary(50000).build();
         User buildUser02 = User.builder().id(1).address("深圳").email("helloworld@kkk.com").salary(50000).build();
@@ -30,6 +33,22 @@ public class LombokAnnotationTest {
         Preconditions.checkArgument(people1.getSalary() > 60000, "你不是50w!");
         check(people2);
         check(people3);
+
+        // @ToString
+        PeopleReq peopleReq = new PeopleReq();
+        peopleReq.setName("zgy");
+        peopleReq.setEmail("hello@qq.com");
+        System.out.println(peopleReq);
+
+        // @Accessors
+        PeopleReq p1 = new PeopleReq().setEmail("zgy").setEmail("123@qq.com").setAddress("shengzheng").setId(1);
+        System.out.println(p1);
+
+        // @RequiredArgsConstructor
+        Game game = new Game("原神", "1");
+        Game game2 = new Game(null, "2");
+        System.out.println(game);
+
     }
 
     // 抛出异常, 使用@SneakyThrows, 不去显式处理异常
