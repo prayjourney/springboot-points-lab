@@ -1,2 +1,2 @@
-### sp2-pagination-mybatis
-mybatis分页
+### pagination-mybatis
+mybatis分 

@@ -16,7 +16,6 @@ import java.io.Serializable;
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
 public class City implements Serializable {
-
     private static final long serialVersionUID = 1L;
 
     private Integer ctId;
