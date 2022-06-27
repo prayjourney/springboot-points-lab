@@ -23,23 +23,23 @@ public class CityController {
     @Autowired
     private CityService cityService;
 
-    @GetMapping("/get/all")
+    @GetMapping("/getAll")
     public List<City> getAllCities() {
         return cityService.getAllCities();
     }
 
-    @GetMapping("/get/id")
+    @GetMapping("/getById")
     public City getById(Integer ctId) {
         return cityService.getById(ctId);
     }
 
-    @GetMapping("/get/page")
+    @GetMapping("/getByPage")
     public PageInfo getByPage(Integer pageNum, Integer pageSize) {
-        return cityService.getByPageNumSize(pageNum, pageSize);
+        return cityService.getByPage(pageNum, pageSize);
     }
 
-    @GetMapping("/get/page/condition")
-    public PageInfo getByConditionPage(Integer ctId, String ctName, String ctProvince, Integer pageNum, Integer pageSize) {
+    @GetMapping("/getByPageWithParams")
+    public PageInfo getByPageWithParams(Integer ctId, String ctName, String ctProvince, Integer pageNum, Integer pageSize) {
         if (null == ctId || "".equals(ctId)) {
             ctId = null;
         }
@@ -49,23 +49,12 @@ public class CityController {
         if (StringUtils.isBlank(ctProvince)) {
             ctProvince = null;
         }
-        return cityService.getByConditionPageNumSize(ctId, ctName, ctProvince, pageNum, pageSize);
+        return cityService.getByPageWithParams(ctId, ctName, ctProvince, pageNum, pageSize);
     }
 
-    @GetMapping("/get/page/obj/condition")
-    public PageInfo getByObjectConditionPage(Integer ctId, String ctName, String ctProvince, Integer pageNum, Integer pageSize) {
-        City city = new City();
-        city.setCtId(ctId).setCtName(ctName).setCtProvince(ctProvince);
-        if (null == ctId || "".equals(ctId)) {
-            city.setCtId(null);
-        }
-        if (StringUtils.isBlank(ctName)) {
-            city.setCtName(null);
-        }
-        if (StringUtils.isBlank(ctProvince)) {
-            city.setCtProvince(null);
-        }
-        return cityService.getByObjectConditionPageNumSize(city, pageNum, pageSize);
+    @GetMapping("/getByPageWithEntity")
+    public PageInfo getByPageWithEntity(City city, Integer pageNum, Integer pageSize) {
+        return cityService.getByPageWithEntity(city, pageNum, pageSize);
     }
 
 }

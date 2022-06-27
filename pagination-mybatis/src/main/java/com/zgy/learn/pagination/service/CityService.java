@@ -17,7 +17,6 @@ import java.util.List;
  */
 @Service
 public class CityService {
-
     @Autowired
     private CityMapper cityMapper;
 
@@ -29,21 +28,21 @@ public class CityService {
         return cityMapper.getAllCities();
     }
 
-    public PageInfo getByPageNumSize(Integer pageNum, Integer pageSize) {
+    public PageInfo getByPage(Integer pageNum, Integer pageSize) {
         PageHelper.startPage(pageNum, pageSize);
         List<City> cityList = cityMapper.getByPageNumSize(pageNum, pageSize);
         PageInfo pageInfo = new PageInfo(cityList);
         return pageInfo;
     }
 
-    public PageInfo getByConditionPageNumSize(Integer ctId, String ctName, String ctProvince, Integer pageNum, Integer pageSize) {
+    public PageInfo getByPageWithParams(Integer ctId, String ctName, String ctProvince, Integer pageNum, Integer pageSize) {
         PageHelper.startPage(pageNum, pageSize);
         List<City> cityList = cityMapper.getByConditionPageNumSize(ctId, ctName, ctProvince, pageNum, pageSize);
         PageInfo pageInfo = new PageInfo(cityList);
         return pageInfo;
     }
 
-    public PageInfo getByObjectConditionPageNumSize(City city, Integer pageNum, Integer pageSize) {
+    public PageInfo getByPageWithEntity(City city, Integer pageNum, Integer pageSize) {
         PageHelper.startPage(pageNum, pageSize);
         List<City> cityList = cityMapper.getByObjectConditionPageNumSize(city, pageNum, pageSize);
         PageInfo pageInfo = new PageInfo(cityList);
