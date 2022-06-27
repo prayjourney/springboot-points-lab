@@ -38,6 +38,16 @@ public class CityController {
         return cityService.getByPage(pageNum, pageSize);
     }
 
+    /**
+     * 基本类型的参数
+     *
+     * @param ctId
+     * @param ctName
+     * @param ctProvince
+     * @param pageNum
+     * @param pageSize
+     * @return
+     */
     @GetMapping("/getByPageWithParams")
     public PageInfo getByPageWithParams(Integer ctId, String ctName, String ctProvince, Integer pageNum, Integer pageSize) {
         if (null == ctId || "".equals(ctId)) {
@@ -52,6 +62,14 @@ public class CityController {
         return cityService.getByPageWithParams(ctId, ctName, ctProvince, pageNum, pageSize);
     }
 
+    /**
+     * 实体作为参数
+     *
+     * @param city
+     * @param pageNum
+     * @param pageSize
+     * @return
+     */
     @GetMapping("/getByPageWithEntity")
     public PageInfo getByPageWithEntity(City city, Integer pageNum, Integer pageSize) {
         return cityService.getByPageWithEntity(city, pageNum, pageSize);

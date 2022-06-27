@@ -28,6 +28,13 @@ public class CityService {
         return cityMapper.getAllCities();
     }
 
+    /**
+     * 分页
+     *
+     * @param pageNum
+     * @param pageSize
+     * @return
+     */
     public PageInfo getByPage(Integer pageNum, Integer pageSize) {
         PageHelper.startPage(pageNum, pageSize);
         List<City> cityList = cityMapper.getByPageNumSize(pageNum, pageSize);
@@ -35,6 +42,16 @@ public class CityService {
         return pageInfo;
     }
 
+    /**
+     * 条件分页
+     *
+     * @param ctId
+     * @param ctName
+     * @param ctProvince
+     * @param pageNum
+     * @param pageSize
+     * @return
+     */
     public PageInfo getByPageWithParams(Integer ctId, String ctName, String ctProvince, Integer pageNum, Integer pageSize) {
         PageHelper.startPage(pageNum, pageSize);
         List<City> cityList = cityMapper.getByConditionPageNumSize(ctId, ctName, ctProvince, pageNum, pageSize);
@@ -42,6 +59,14 @@ public class CityService {
         return pageInfo;
     }
 
+    /**
+     * 条件分页
+     *
+     * @param city
+     * @param pageNum
+     * @param pageSize
+     * @return
+     */
     public PageInfo getByPageWithEntity(City city, Integer pageNum, Integer pageSize) {
         PageHelper.startPage(pageNum, pageSize);
         List<City> cityList = cityMapper.getByObjectConditionPageNumSize(city, pageNum, pageSize);

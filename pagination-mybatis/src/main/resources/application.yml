@@ -2,6 +2,8 @@ server:
   port: 10002
 
 spring:
+  application:
+    name: pagination-mybatis
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://127.0.0.1:3306/myschool?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
@@ -32,3 +34,7 @@ mybatis:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
   mapper-locations: classpath:mapper/*.xml
   tytype-aliases-package: com.zgy.learn.pagination.pojo
+
+logging:
+  level:
+    com.zgy.learn.mapper: debug
