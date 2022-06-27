@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zgy.learn.pagination.mapper.StudentMapper">
+
+    <select id="getById" resultType="com.zgy.learn.pagination.pojo.Student">
+        SELECT stId, stName, stAge, stPhoneNo, stGender, stClass, stHome, stParentsId
+        FROM `student`
+        <where>
+            <if test="stId!=null">
+                stId = #{stId}
+            </if>
+        </where>
+    </select>
+
+    <select id="pageByLimit" resultType="com.zgy.learn.pagination.pojo.Student">
+        SELECT stId,
+               stName,
+               stAge,
+               stPhoneNo,
+               stGender,
+               stClass,
+               stHome,
+               stParentsId
+        FROM `student`
+        LIMIT #{pageNum}, #{pageSize}
+    </select>
+
+    <select id="pageByLimitWithParams" resultType="com.zgy.learn.pagination.pojo.Student">
+        SELECT stId, stName, stAge, stPhoneNo, stGender, stClass, stHome, stParentsId
+        FROM `student`
+        <where>
+            <if test="student.stId!=null">
+                stId = #{student.stId}
+            </if>
+            <if test="student.stName!=null">
+                stName = #{student.stName}
+            </if>
+            <if test="student.stAge!=null">
+                stAge = #{student.stAge}
+            </if>
+            <if test="student.stPhoneNo!=null">
+                stPhoneNo = #{student.stPhoneNo}
+            </if>
+            <if test="student.stGender!=null">
+                stGender = #{student.stGender}
+            </if>
+            <if test="student.stClass!=null">
+                stClass = #{student.stClass}
+            </if>
+            <if test="student.stHome!=null">
+                ststHomeId = #{student.stHome}
+            </if>
+            <if test="student.stParentsId!=null">
+                stParentsId = #{student.stParentsId}
+            </if>
+        </where>
+        LIMIT #{pageNum}, #{pageSize}
+    </select>
+
+    <select id="countNum" resultType="java.lang.Integer">
+        SELECT COUNT(stId)
+        FROM `student`
+        <where>
+            <if test="student.stId!=null">
+                stId = #{student.stId}
+            </if>
+            <if test="student.stName!=null">
+                stName = #{student.stName}
+            </if>
+            <if test="student.stAge!=null">
+                stAge = #{student.stAge}
+            </if>
+            <if test="student.stPhoneNo!=null">
+                stPhoneNo = #{student.stPhoneNo}
+            </if>
+            <if test="student.stGender!=null">
+                stGender = #{student.stGender}
+            </if>
+            <if test="student.stClass!=null">
+                stClass = #{student.stClass}
+            </if>
+            <if test="student.stHome!=null">
+                ststHomeId = #{student.stHome}
+            </if>
+            <if test="student.stParentsId!=null">
+                stParentsId = #{student.stParentsId}
+            </if>
+        </where>
+    </select>
+
+
+</mapper>
