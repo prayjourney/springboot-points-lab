@@ -1,7 +1,6 @@
 server:
   port: 8833
 
-
 # 数据库+druid
 spring:
   datasource:
@@ -33,7 +32,6 @@ spring:
     prefix: classpath:/templates/
     suffix: .html
 
-
 # mybatis-plus配置
 mybatis-plus:
   configuration:
@@ -42,7 +40,6 @@ mybatis-plus:
     # mapper文件的位置, 实际存放的位置是classpath:mapper/*.xml, 而不是classpath:com/zgy/learn/bootshiro/mapper/*.xml
   mapper-locations: classpath:mapper/*.xml # 使用接口和注解查询其实更好
   type-aliases-package: com.zgy.learn.bootshiro.pojo # 返回结果类型的时候, 可以直接使用类名
-
 
 # log位置的配置
 logging:

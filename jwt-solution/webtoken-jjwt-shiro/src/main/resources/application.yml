@@ -1,7 +1,6 @@
 server:
   port: 8301
 
-
 # 数据库+druid
 spring:
   profiles:
@@ -35,15 +34,13 @@ spring:
     prefix: classpath:/templates/
     suffix: .html
 
-
-# mybaits
+# mybatis
 mybatis:
   mapper-locations: classpath:mapper/*.xml
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
     map-underscore-to-camel-case: false
   type-aliases-package: com.zgy.learn.webtoken.pojo
-
 
 # log位置的配置
 logging:
