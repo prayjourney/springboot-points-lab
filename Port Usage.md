@@ -35,14 +35,9 @@
 | upload-download | 9998 |
 | verification-hutool | 9994 |
 | verification-kaptcha | 9995 |
-| web-fronted | - |
 | webtoken-javajwt | 8298 |
 | webtoken-jjwt | 8299 |
 | webtoken-jjwt-shiro | 8301 |
-| | |
-| z_projects: teacher-manage-backend | 8988 |
 | swagger-mail-quartz-mongo | 9933 |
-| | |
-| | |
-| | |
+| elasticsearch-use | 9912 |
 
