@@ -10,7 +10,7 @@ import org.springframework.session.data.redis.config.annotation.web.http.EnableR
  * @modified:
  */
 @EnableRedisHttpSession(maxInactiveIntervalInSeconds = 1800, flushMode = FlushMode.ON_SAVE,
-        redisNamespace = "sp2-session-redis")
+        redisNamespace = "session-redis")
 public class SessionConfig {
 
 }

@@ -53,7 +53,7 @@
 <a name="启动项目"></a>
 ### 启动项目
 1. main方法直接运行：
-(1)找到Sp2UploadBigfileApplication启动类（com.zgy.learn包下）
+(1)找到UploadBigfileApplication启动类（com.zgy.learn包下）
 (2)执行main方法。
 (3)然后用浏览器访问：<http://localhost:9090>
 <a name="项目示范"></a>

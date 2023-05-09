@@ -13,7 +13,7 @@
 - [x] springboot整合druid和mybatis-plus
     - 这个整合其实是很「无感」的, 基本就是DruidConfig+MybatisPlusConfig, 然后再到application.properties之中配置, 
     druid的配置是spring.datasource.druid与db配置的部分, mybatis-plus的配置就是mybatis-plus.mapper-locations等
-    mybatis-plus.xxx的相关配置，这个具体的配置实在没有太多演示的需要，可以参看例如`sp2-webtoken-javajwt`模块。
+    mybatis-plus.xxx的相关配置，这个具体的配置实在没有太多演示的需要，可以参看例如`webtoken-javajwt`模块。
 - springboot整合spring-session
     - [x] jdbc方式
     - [x] redis方式

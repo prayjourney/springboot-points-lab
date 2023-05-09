@@ -48,5 +48,5 @@ mybatis:
 # log位置的配置
 logging:
   file:
-    path: /web/tomcat/logs/sp2-webtoken-jjwt-shiro
+    path: /web/tomcat/logs/webtoken-jjwt-shiro
 

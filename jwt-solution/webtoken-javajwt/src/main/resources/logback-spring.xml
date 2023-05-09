@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <configuration>
     <springProperty scope="context" name="LOG_PATH" source="logging.file.path"
-                    defaultValue="/web/tomcat/logs/sp2-webtoken-javajwt"/>
+                    defaultValue="/web/tomcat/logs/webtoken-javajwt"/>
     <appender name="STD_OUT" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>
             <charset>UTF-8</charset>
@@ -66,6 +66,6 @@
         </root>
     </springProfile>
 
-    <logger name="sp2-webtoken-javajwt" level="DEBUG"/>
+    <logger name="webtoken-javajwt" level="DEBUG"/>
     <logger name="sql" level="DEBUG"/>
 </configuration>

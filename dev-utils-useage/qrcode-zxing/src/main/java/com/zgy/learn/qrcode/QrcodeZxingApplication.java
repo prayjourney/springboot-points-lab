@@ -1,13 +1,13 @@
-package com.zgy.learn.webtoken;
+package com.zgy.learn.qrcode;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class WebtokenJavaJwtApplication {
+public class QrcodeZxingApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(WebtokenJavaJwtApplication.class, args);
+        SpringApplication.run(QrcodeZxingApplication.class, args);
     }
 
 }
