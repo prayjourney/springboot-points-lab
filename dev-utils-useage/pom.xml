@@ -7,11 +7,33 @@
     <groupId>com.zgy.learn</groupId>
     <artifactId>dev-utils-useage</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
+
+    <modules>
+        <module>boot-gson</module>
+        <module>boot-guava</module>
+        <module>call-then-back</module>
+        <module>dev-common-utils</module>
+        <module>excel-easypoi</module>
+        <module>ignore-url-uppercase</module>
+        <module>mapstruct-learn</module>
+        <module>md5-sha</module>
+        <module>qrcode-hutool</module>
+        <module>qrcode-zxing</module>
+        <module>quartz-simple</module>
+        <module>ssl-boot</module>
+        <module>thinjar-test</module>
+        <module>tools-use</module>
+        <module>verification-hutool</module>
+        <module>verification-kaptcha</module>
+        <module>verification-tianai</module>
+        <module>xml-deal</module>
+    </modules>
 
 </project>

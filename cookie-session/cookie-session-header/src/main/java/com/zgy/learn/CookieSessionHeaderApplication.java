@@ -4,10 +4,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class Sp2CookieSessionHeaderApplication {
+public class CookieSessionHeaderApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(Sp2CookieSessionHeaderApplication.class, args);
+        SpringApplication.run(CookieSessionHeaderApplication.class, args);
     }
 
 }
