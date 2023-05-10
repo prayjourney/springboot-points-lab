@@ -3,12 +3,14 @@ package com.zgy.multipledatasource;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-// @SpringBootApplication(exclude = DruidDataSourceAutoConfigure.class)
+/**
+ * mybatis的分包使用多数据源的策略
+ */
 @SpringBootApplication
-public class MultipleDatasourceApplication {
+public class MultipleDatasourceByPackageApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(MultipleDatasourceApplication.class, args);
+        SpringApplication.run(MultipleDatasourceByPackageApplication.class, args);
     }
 
 }
