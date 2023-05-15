@@ -100,16 +100,17 @@ public class KidLoginController {
         String token = null;
         // 1. 把token添加到了cookie之中, 从header之中携带的cookie获取信息
         Cookie[] cookies = request.getCookies();
-        for (int i = 0; i < cookies.length; i++) {
-            if (cookies[i].getName().equals("jwtToken")) {
-                token = cookies[i].getValue();
+        if (null != cookies) {
+            for (int i = 0; i < cookies.length; i++) {
+                if (null != cookies && cookies[i].getName().equals("jwtToken")) {
+                    token = cookies[i].getValue();
+                }
+            }
+            if (null != token) {
+                return "有token信息，暂时通过";
             }
         }
-        if (null != token) {
-            return "有token信息，暂时通过";
-        } else {
-            return "没有token信息，无法通过";
-        }
+        return "没有token信息，无法通过";
     }
 
     @NeedLogin
