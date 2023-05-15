@@ -6,3 +6,4 @@ redis的使用
 |--|--|
 |redis-jedis| 12003|
 |redis-lettuce | 10124 |
+|redis-lock-distributed | 10125 |
