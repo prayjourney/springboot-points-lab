@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zgy.learn.securityjwttoken.mapper.JwtUserMapper">
+
+    <resultMap type="com.zgy.learn.securityjwttoken.pojo.JwtUser" id="JwtUserMap">
+        <result property="id" column="id" jdbcType="INTEGER"/>
+        <result property="username" column="username" jdbcType="VARCHAR"/>
+        <result property="password" column="password" jdbcType="VARCHAR"/>
+        <result property="roles" column="roles" jdbcType="VARCHAR"/>
+        <result property="authorities" column="authorities" jdbcType="VARCHAR"/>
+        <result property="ip" column="ip" jdbcType="VARCHAR"/>
+        <result property="domain" column="domain" jdbcType="VARCHAR"/>
+        <result property="enabled" column="enabled" jdbcType="INTEGER"/>
+        <result property="firstLogin" column="first_login" jdbcType="INTEGER"/>
+        <result property="createTime" column="create_time" jdbcType="TIMESTAMP"/>
+        <result property="updateTime" column="update_time" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <!--查询单个-->
+    <select id="queryById" resultMap="JwtUserMap">
+        select
+          id, username, password, roles, authorities, ip, domain, enabled, first_login, create_time, update_time
+        from jwt_user
+        where id = #{id}
+    </select>
+
+    <!--统计总行数-->
+    <select id="count" resultType="java.lang.Long">
+        select count(1)
+        from jwt_user
+        <where>
+            <if test="id != null">
+                and id = #{id}
+            </if>
+            <if test="username != null and username != ''">
+                and username = #{username}
+            </if>
+            <if test="password != null and password != ''">
+                and password = #{password}
+            </if>
+            <if test="roles != null and roles != ''">
+                and roles = #{roles}
+            </if>
+            <if test="authorities != null and authorities != ''">
+                and authorities = #{authorities}
+            </if>
+            <if test="ip != null and ip != ''">
+                and ip = #{ip}
+            </if>
+            <if test="domain != null and domain != ''">
+                and domain = #{domain}
+            </if>
+            <if test="enabled != null">
+                and enabled = #{enabled}
+            </if>
+            <if test="firstLogin != null">
+                and first_login = #{firstLogin}
+            </if>
+            <if test="createTime != null">
+                and create_time = #{createTime}
+            </if>
+            <if test="updateTime != null">
+                and update_time = #{updateTime}
+            </if>
+        </where>
+    </select>
+
+    <!--新增所有列-->
+    <insert id="insert" keyProperty="id" useGeneratedKeys="true">
+        insert into jwt_user(username, password, roles, authorities, ip, domain, enabled, first_login, create_time, update_time)
+        values (#{username}, #{password}, #{roles}, #{authorities}, #{ip}, #{domain}, #{enabled}, #{firstLogin}, #{createTime}, #{updateTime})
+    </insert>
+
+    <insert id="insertBatch" keyProperty="id" useGeneratedKeys="true">
+        insert into jwt_user(username, password, roles, authorities, ip, domain, enabled, first_login, create_time, update_time)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+        (#{entity.username}, #{entity.password}, #{entity.roles}, #{entity.authorities}, #{entity.ip}, #{entity.domain}, #{entity.enabled}, #{entity.firstLogin}, #{entity.createTime}, #{entity.updateTime})
+        </foreach>
+    </insert>
+
+    <insert id="insertOrUpdateBatch" keyProperty="id" useGeneratedKeys="true">
+        insert into jwt_user(username, password, roles, authorities, ip, domain, enabled, first_login, create_time, update_time)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+            (#{entity.username}, #{entity.password}, #{entity.roles}, #{entity.authorities}, #{entity.ip}, #{entity.domain}, #{entity.enabled}, #{entity.firstLogin}, #{entity.createTime}, #{entity.updateTime})
+        </foreach>
+        on duplicate key update
+        username = values(username),
+        password = values(password),
+        roles = values(roles),
+        authorities = values(authorities),
+        ip = values(ip),
+        domain = values(domain),
+        enabled = values(enabled),
+        first_login = values(first_login),
+        create_time = values(create_time),
+        update_time = values(update_time)
+    </insert>
+
+    <!--通过主键修改数据-->
+    <update id="update">
+        update jwt_user
+        <set>
+            <if test="username != null and username != ''">
+                username = #{username},
+            </if>
+            <if test="password != null and password != ''">
+                password = #{password},
+            </if>
+            <if test="roles != null and roles != ''">
+                roles = #{roles},
+            </if>
+            <if test="authorities != null and authorities != ''">
+                authorities = #{authorities},
+            </if>
+            <if test="ip != null and ip != ''">
+                ip = #{ip},
+            </if>
+            <if test="domain != null and domain != ''">
+                domain = #{domain},
+            </if>
+            <if test="enabled != null">
+                enabled = #{enabled},
+            </if>
+            <if test="firstLogin != null">
+                first_login = #{firstLogin},
+            </if>
+            <if test="createTime != null">
+                create_time = #{createTime},
+            </if>
+            <if test="updateTime != null">
+                update_time = #{updateTime},
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+
+    <!--通过主键删除-->
+    <delete id="deleteById">
+        delete from jwt_user where id = #{id}
+    </delete>
+
+</mapper>
+
