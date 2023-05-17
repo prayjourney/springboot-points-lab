@@ -1,1 +1,26 @@
+spring:
+  application:
+    name: security-jwt-token
+  datasource:
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/security?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=UTF-8
 
+server:
+  port: 8765
+
+jwt:
+  # \u52A0\u5BC6\u5BC6\u94A5
+  secret: iwqjhda8232bjgh432[cicada-smile]
+  # token\u6709\u6548\u65F6\u957F
+  expire: 3600
+  #\u8BF7\u6C42\u5934\u53C2\u6570
+  tokenHeader: token
+
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    map-underscore-to-camel-case: true
+  mapper-locations: classpath*:/mapper/*.xml
+  type-aliases-package: com.zgy.learn.securityjwttoken.pojo

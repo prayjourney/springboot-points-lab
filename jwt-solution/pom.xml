@@ -11,6 +11,7 @@
 
     <modules>
         <module>security-jwt</module>
+        <module>security-jwt-token</module>
         <module>webtoken-jjwt</module>
         <module>webtoken-javajwt</module>
         <module>webtoken-jjwt-shiro</module>
