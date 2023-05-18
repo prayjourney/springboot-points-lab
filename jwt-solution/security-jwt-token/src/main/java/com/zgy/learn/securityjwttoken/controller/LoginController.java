@@ -1,7 +1,7 @@
 package com.zgy.learn.securityjwttoken.controller;
 
 import cn.hutool.core.date.DateUtil;
-import com.zgy.learn.securityjwttoken.annotation.NotLogin;
+import com.zgy.learn.securityjwttoken.annotation.IgnoreAuth;
 import com.zgy.learn.securityjwttoken.service.JwtUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -20,14 +20,14 @@ public class LoginController {
     /**
      * 自定义的登录接口
      */
-    @NotLogin
+    @IgnoreAuth
     @PostMapping("/login")
     public Map login(@RequestParam("username") String username,
                      @RequestParam("password") String password) {
         return userService.login(username, password);
     }
 
-    @NotLogin
+    @IgnoreAuth
     @PostMapping("/time")
     public String time() {
         return DateUtil.now();

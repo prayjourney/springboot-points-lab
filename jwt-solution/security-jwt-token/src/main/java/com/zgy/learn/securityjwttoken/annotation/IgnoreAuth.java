@@ -10,6 +10,6 @@ import java.lang.annotation.Target;
  */
 @Target({ElementType.METHOD, ElementType.TYPE})
 @Retention(value = RetentionPolicy.RUNTIME)
-public @interface NotLogin {
+public @interface IgnoreAuth {
     boolean required() default true;
 }
