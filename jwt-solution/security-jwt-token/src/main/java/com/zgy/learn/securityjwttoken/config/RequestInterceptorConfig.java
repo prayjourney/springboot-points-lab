@@ -1,6 +1,6 @@
 package com.zgy.learn.securityjwttoken.config;
 
-import com.zgy.learn.securityjwttoken.handler.NotLoginInterceptor;
+import com.zgy.learn.securityjwttoken.handler.IgnoreAuthInterceptor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
@@ -12,7 +12,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @Configuration
 public class RequestInterceptorConfig implements WebMvcConfigurer {
     @Autowired
-    private NotLoginInterceptor interceptor;
+    private IgnoreAuthInterceptor interceptor;
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
