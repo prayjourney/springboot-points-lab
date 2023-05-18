@@ -70,8 +70,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .csrf().disable()
                 // 跨域
                 .cors()
-                //.and()
-                //.exceptionHandling().authenticationEntryPoint(myAuthenticationEntryPoint)
+                .and()
+                .exceptionHandling().authenticationEntryPoint(myAuthenticationEntryPoint)
                 .and()
                 .exceptionHandling().accessDeniedHandler(myAccessDeniedHandler)
                 .and()
@@ -82,7 +82,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .authorizeRequests();
         // 放开/login, 其它接口都要认证
-        authorizeRequest.antMatchers("/login").permitAll().anyRequest().authenticated();
+        //authorizeRequest.antMatchers("/login").permitAll().anyRequest().authenticated();
+        authorizeRequest.anyRequest().authenticated();
 
         // 将token验证添加在密码验证前面
         httpSecurity.addFilterBefore(jwtAuthenticationTokenFilter, UsernamePasswordAuthenticationFilter.class);
