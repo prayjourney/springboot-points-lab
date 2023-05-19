@@ -1,5 +1,6 @@
 package com.zgy.learn.securityjwttoken.handler;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.AuthenticationEntryPoint;
 import org.springframework.stereotype.Component;
@@ -14,12 +15,13 @@ import java.util.HashMap;
  * AuthenticationEntryPoint 用来解决匿名用户访问无权限资源时的异常
  * AccessDeniedHandler      用来解决认证过的用户访问无权限资源时的异常
  */
+@Slf4j
 @Component
 public class MyAuthenticationEntryPoint implements AuthenticationEntryPoint {
     @Override
-    public void commence(HttpServletRequest request,
-                         HttpServletResponse response,
+    public void commence(HttpServletRequest request, HttpServletResponse response,
                          AuthenticationException authException) throws IOException {
+        log.info("authentication failed...");
         // token认证失败
         HashMap map = new HashMap();
         map.put("code", 402);
