@@ -5,10 +5,7 @@ import com.zgy.learn.securityjwttoken.annotation.IgnoreAuth;
 import com.zgy.learn.securityjwttoken.service.JwtUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
 
@@ -38,8 +35,38 @@ public class LoginController {
      */
     @PreAuthorize("hasAuthority('default')")
     @GetMapping("/test")
-    public String testAuthority() {
+    public String testAuthority01() {
         return "权限正常, 可以正常访问";
+    }
+
+    @PreAuthorize("hasAuthority('admin')")
+    @GetMapping("/test")
+    public String testAuthority02() {
+        return "权限正常, 可以正常访问";
+    }
+
+    @IgnoreAuth
+    @PreAuthorize("hasAuthority('default')")
+    @GetMapping("/test")
+    public String testAuthority03() {
+        return "权限正常, 可以正常访问";
+    }
+
+    @IgnoreAuth
+    @PreAuthorize("hasAuthority('admin')")
+    @GetMapping("/test")
+    public String testAuthority04() {
+        return "权限正常, 可以正常访问";
+    }
+
+    @PostMapping("/info")
+    public String info() {
+        return "everything";
+    }
+
+    @GetMapping("/color")
+    public String color() {
+        return "红色";
     }
 
 }
