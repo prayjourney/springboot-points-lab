@@ -7,6 +7,7 @@ import com.zgy.learn.securityjwttoken.service.AuthenticationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
@@ -25,6 +26,9 @@ import javax.annotation.Resource;
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
+    // 放行的接口设置, 包括配置的和使用注解的
+    @Resource
+    private IgnoreAuthProperties ignoreAuthProperties;
     @Resource
     private MyAuthenticationEntryPoint myAuthenticationEntryPoint;
     @Resource
@@ -81,12 +85,31 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .headers().cacheControl().disable()
                 .and()
                 .authorizeRequests();
-        // 放开/login, 其它接口都要认证
-        //authorizeRequest.antMatchers("/login").permitAll().anyRequest().authenticated();
+        // 设置放行接口, 其它接口都要认证
+        ignoreAuth(authorizeRequest);
         authorizeRequest.anyRequest().authenticated();
 
         // 将token验证添加在密码验证前面
         httpSecurity.addFilterBefore(jwtAuthenticationTokenFilter, UsernamePasswordAuthenticationFilter.class);
+    }
+
+    private ExpressionUrlAuthorizationConfigurer<HttpSecurity>.ExpressionInterceptUrlRegistry ignoreAuth(ExpressionUrlAuthorizationConfigurer<HttpSecurity>.ExpressionInterceptUrlRegistry authorizeRequest) {
+        String[] allUrl = new String[ignoreAuthProperties.getAllUrl().size()];
+        String[] getUrl = new String[ignoreAuthProperties.getGetUrl().size()];
+        String[] postUrl = new String[ignoreAuthProperties.getPostUrl().size()];
+        ignoreAuthProperties.getGetUrl().toArray(getUrl);
+        ignoreAuthProperties.getPostUrl().toArray(postUrl);
+        ignoreAuthProperties.getAllUrl().toArray(allUrl);
+        if (allUrl.length > 0) {
+            authorizeRequest.antMatchers(allUrl).permitAll();
+        }
+        if (getUrl.length > 0) {
+            authorizeRequest.antMatchers(HttpMethod.GET, getUrl).permitAll();
+        }
+        if (postUrl.length > 0) {
+            authorizeRequest.antMatchers(HttpMethod.POST, postUrl).permitAll();
+        }
+        return authorizeRequest;
     }
 
 }
