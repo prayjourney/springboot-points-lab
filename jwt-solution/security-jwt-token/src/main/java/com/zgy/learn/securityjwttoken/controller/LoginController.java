@@ -47,7 +47,7 @@ public class LoginController {
 
     @IgnoreAuth
     @PreAuthorize("hasAuthority('default')")
-    @GetMapping("/test03")
+    @PostMapping("/test03")
     public String testAuthority03() {
         return "权限正常, 可以正常访问";
     }
