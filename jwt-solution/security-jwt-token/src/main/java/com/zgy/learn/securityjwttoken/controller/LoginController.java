@@ -34,27 +34,27 @@ public class LoginController {
      * 默认权限
      */
     @PreAuthorize("hasAuthority('default')")
-    @GetMapping("/test")
+    @GetMapping("/test01")
     public String testAuthority01() {
         return "权限正常, 可以正常访问";
     }
 
     @PreAuthorize("hasAuthority('admin')")
-    @GetMapping("/test")
+    @GetMapping("/test02")
     public String testAuthority02() {
         return "权限正常, 可以正常访问";
     }
 
     @IgnoreAuth
     @PreAuthorize("hasAuthority('default')")
-    @GetMapping("/test")
+    @GetMapping("/test03")
     public String testAuthority03() {
         return "权限正常, 可以正常访问";
     }
 
     @IgnoreAuth
     @PreAuthorize("hasAuthority('admin')")
-    @GetMapping("/test")
+    @GetMapping("/test04")
     public String testAuthority04() {
         return "权限正常, 可以正常访问";
     }
