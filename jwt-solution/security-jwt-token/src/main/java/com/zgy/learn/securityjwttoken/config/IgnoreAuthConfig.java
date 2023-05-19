@@ -1,13 +1,12 @@
 package com.zgy.learn.securityjwttoken.config;
 
-import com.zgy.learn.securityjwttoken.annotation.IgnoreAuth;
+import com.zgy.learn.securityjwttoken.annotation.NotLogin;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.annotation.AnnotatedElementUtils;
-import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -51,12 +50,12 @@ public class IgnoreAuthConfig implements ApplicationContextAware {
             String methodType;
             GetMapping getMapping;
             PostMapping postMapping;
-            IgnoreAuth ignoreAuthInfo;
+            NotLogin notLoginInfo;
 
             for (Method method : allMethods) {
                 // 判断方法是否使用忽略权限认证注解
-                ignoreAuthInfo = AnnotatedElementUtils.findMergedAnnotation(method, IgnoreAuth.class);
-                if (ignoreAuthInfo != null) {
+                notLoginInfo = AnnotatedElementUtils.findMergedAnnotation(method, NotLogin.class);
+                if (notLoginInfo != null) {
                     String url = "";
                     methodType = "";
                     // 当注解没配置接口名称时候使用接口名称(Controller访问路径+接口访问路径)

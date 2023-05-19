@@ -1,7 +1,7 @@
 package com.zgy.learn.securityjwttoken.controller;
 
 import cn.hutool.core.date.DateUtil;
-import com.zgy.learn.securityjwttoken.annotation.IgnoreAuth;
+import com.zgy.learn.securityjwttoken.annotation.NotLogin;
 import com.zgy.learn.securityjwttoken.service.JwtUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -17,14 +17,14 @@ public class LoginController {
     /**
      * 自定义的登录接口
      */
-    @IgnoreAuth
+    @NotLogin
     @PostMapping("/login")
     public Map login(@RequestParam("username") String username,
                      @RequestParam("password") String password) {
         return userService.login(username, password);
     }
 
-    @IgnoreAuth
+    @NotLogin
     @PostMapping("/time")
     public String time() {
         return DateUtil.now();
@@ -45,14 +45,15 @@ public class LoginController {
         return "权限正常, 可以正常访问";
     }
 
-    @IgnoreAuth
+    // @NotLogin@PreAuthorize一起, 还是会要权限
+    @NotLogin
     @PreAuthorize("hasAuthority('default')")
     @PostMapping("/test03")
     public String testAuthority03() {
         return "权限正常, 可以正常访问";
     }
 
-    @IgnoreAuth
+    @NotLogin
     @PreAuthorize("hasAuthority('admin')")
     @GetMapping("/test04")
     public String testAuthority04() {
