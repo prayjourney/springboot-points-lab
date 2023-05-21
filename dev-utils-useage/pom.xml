@@ -16,6 +16,7 @@
     </properties>
 
     <modules>
+        <module>boot-aop</module>
         <module>boot-gson</module>
         <module>boot-guava</module>
         <module>call-then-back</module>
