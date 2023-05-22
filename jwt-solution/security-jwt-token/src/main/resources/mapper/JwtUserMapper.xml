@@ -24,6 +24,14 @@
         where id = #{id}
     </select>
 
+    <!--查询单个-->
+    <select id="queryByName" resultMap="JwtUserMap">
+        select
+            id, username, password, roles, authorities, ip, domain, enabled, first_login, create_time, update_time
+        from jwt_user
+        where username = #{username}
+    </select>
+
     <!--统计总行数-->
     <select id="count" resultType="java.lang.Long">
         select count(1)

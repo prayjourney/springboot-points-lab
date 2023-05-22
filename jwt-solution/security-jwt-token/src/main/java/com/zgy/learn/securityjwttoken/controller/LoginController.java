@@ -7,22 +7,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.Map;
 
 @RestController
 public class LoginController {
     @Autowired
     private JwtUserService userService;
-
-    /**
-     * 自定义的登录接口
-     */
-    @NotLogin
-    @PostMapping("/login")
-    public Map login(@RequestParam("username") String username,
-                     @RequestParam("password") String password) {
-        return userService.login(username, password);
-    }
 
     @NotLogin
     @PostMapping("/time")
@@ -68,6 +59,38 @@ public class LoginController {
     @GetMapping("/color")
     public String color() {
         return "红色";
+    }
+
+    /**
+     * 自定义登录接口
+     *
+     * @param username
+     * @param password
+     * @return
+     */
+    @NotLogin
+    @PostMapping("/login")
+    public Map<String, Object> login(@RequestParam("username") String username,
+                                     @RequestParam("password") String password) {
+        return userService.login(username, password);
+    }
+
+    @NotLogin
+    @GetMapping("/checkUser")
+    public Map<String, Object> checkUser(@RequestParam("username") String username) {
+        return userService.checkUser(username);
+    }
+
+    /**
+     * 修改密码: 登录的情况下
+     *
+     * @param newPassword
+     * @param oldPassword
+     * @return
+     */
+    @PostMapping("/changePassword")
+    public Map<String, Object> changePassword(HttpServletRequest request, String newPassword, String oldPassword) {
+        return userService.changePassword(request, newPassword, oldPassword);
     }
 
 }

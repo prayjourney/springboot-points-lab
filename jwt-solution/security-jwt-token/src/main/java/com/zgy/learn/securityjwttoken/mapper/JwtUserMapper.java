@@ -17,6 +17,11 @@ public interface JwtUserMapper extends BaseMapper<JwtUser> {
     JwtUser queryById(Integer id);
 
     /**
+     * 通过username查询
+     */
+    JwtUser queryByName(String username);
+
+    /**
      * 统计总行数
      */
     long count(JwtUser jwtUser);
