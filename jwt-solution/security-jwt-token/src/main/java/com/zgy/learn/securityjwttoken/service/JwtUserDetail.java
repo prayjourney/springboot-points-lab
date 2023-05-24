@@ -10,7 +10,7 @@ import java.util.Collection;
 import java.util.List;
 
 /**
- * @description 从token中获取用户权限信息
+ * 从token中获取用户权限信息
  */
 public class JwtUserDetail implements UserDetails {
     private String username;
@@ -47,9 +47,15 @@ public class JwtUserDetail implements UserDetails {
     }
 
     /**
-     * 帐号是否未过期
-     *
-     * @return
+     * 账号是否可用
+     */
+    @Override
+    public boolean isEnabled() {
+        return true;
+    }
+
+    /**
+     * 账号未过期
      */
     @Override
     public boolean isAccountNonExpired() {
@@ -57,9 +63,7 @@ public class JwtUserDetail implements UserDetails {
     }
 
     /**
-     * 帐号是否未锁定
-     *
-     * @return
+     * 账号未锁定
      */
     @Override
     public boolean isAccountNonLocked() {
@@ -67,18 +71,10 @@ public class JwtUserDetail implements UserDetails {
     }
 
     /**
-     * 凭证未过期
+     * 密码未过期
      */
     @Override
     public boolean isCredentialsNonExpired() {
-        return true;
-    }
-
-    /**
-     * 是否可用
-     */
-    @Override
-    public boolean isEnabled() {
         return true;
     }
 
