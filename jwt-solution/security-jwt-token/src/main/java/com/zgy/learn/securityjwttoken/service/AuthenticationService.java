@@ -34,6 +34,10 @@ public class AuthenticationService implements UserDetailsService {
         if (null == jwtUser) {
             throw new UsernameNotFoundException("用户不存在！");
         }
+        // 可用性检测
+        if (!jwtUser.getEnabled().equals(1)) {
+            throw new UsernameNotFoundException("用户不可用！");
+        }
         // 存储在数据库之中的密码
         String passwordInDB = jwtUser.getPassword();
         // 获取用户权限
@@ -43,8 +47,8 @@ public class AuthenticationService implements UserDetailsService {
         // String allAuthorityInfos = authorities + "," + roles;
         List<GrantedAuthority> grantedAuthorities = AuthorityUtils.commaSeparatedStringToAuthorityList(authorities);
 
-        return new User(username, passwordInDB, jwtUser.getEnabled() == 0 ? false : true, false,
-                false, false, grantedAuthorities);
+        return new User(username, passwordInDB, jwtUser.getEnabled() == 0 ? false : true, true,
+                true, true, grantedAuthorities);
     }
 
 }
