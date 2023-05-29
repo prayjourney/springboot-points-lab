@@ -58,6 +58,13 @@
             <version>6.2.0.Final</version>
         </dependency>
 
+        <!-- 这个是最新款, 包含了上面的两个 -->
+<!--        <dependency>-->
+<!--            <groupId>org.springframework.boot</groupId>-->
+<!--            <artifactId>spring-boot-starter-validation</artifactId>-->
+<!--            <version>3.0.2</version>-->
+<!--        </dependency>-->
+
         <!-- commons-io -->
         <dependency>
             <groupId>org.apache.commons</groupId>
