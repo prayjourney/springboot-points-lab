@@ -1,7 +1,6 @@
 package com.zgy.learn.beautifulcode.pojo;
 
-import lombok.Data;
-import lombok.NonNull;
+import lombok.*;
 
 /**
  * @author: pray-journey.io
@@ -10,6 +9,8 @@ import lombok.NonNull;
  * @modified:
  */
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class Game {
     @NonNull
     private String name;
