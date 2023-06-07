@@ -65,4 +65,14 @@ class SecurityJwtTokenApplicationTests {
         jwtUserMapper.insert(jwtUser);
     }
 
+    @Test
+    public void testInsertUser05() {
+        PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+        JwtUser jwtUser = new JwtUser();
+        String pwd = passwordEncoder.encode("123456");
+        jwtUser.setUsername("mc").setEnabled(0).setFirstLogin(0).setAuthorities("").setCreateTime(new Date())
+                .setUpdateTime(new Date()).setPassword(pwd);
+        jwtUserMapper.insert(jwtUser);
+    }
+
 }

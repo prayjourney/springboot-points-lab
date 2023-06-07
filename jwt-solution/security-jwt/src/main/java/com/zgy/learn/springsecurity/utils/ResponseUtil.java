@@ -18,8 +18,10 @@ public class ResponseUtil {
             // 跨域设置
             response.setHeader("Access-Control-Allow-Origin", "*");
             response.setHeader("Access-Control-Allow-Methods", "*");
+            response.setHeader("Cache-Control", "no-cache");
             // 设置为json格式
-            response.setContentType("application/json;charset=UTF-8");
+            response.setCharacterEncoding("UTF-8");
+            response.setContentType("application/json");
             response.setStatus(status);
             // 装配返回值，状态码+token
             JSONObject object = new JSONObject();
