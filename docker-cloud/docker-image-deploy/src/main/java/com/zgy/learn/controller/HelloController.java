@@ -12,6 +12,11 @@ public class HelloController {
     @Autowired
     private PropProperties properties;
 
+    @GetMapping("")
+    public String index() {
+        return "index";
+    }
+
     @GetMapping("/name")
     public String name() {
         return properties.getName();
