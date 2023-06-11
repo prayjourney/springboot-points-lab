@@ -11,6 +11,7 @@ import lombok.*;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@RequiredArgsConstructor // 配合@NonNull, final使用, 部分参数的构造器
 public class Game {
     @NonNull
     private String name;
