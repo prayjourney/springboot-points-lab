@@ -5,5 +5,6 @@ MAINTAINER zgy<zgy@123.com>
 WORKDIR /usr/local/app
 #把我们打包好的target目录下的这个jar, add到工作目录之中
 ADD ./target/docker-image-deploy.jar .
-EXPOSE 8080
+#端口要和配置的profile中的一致
+EXPOSE 11998
 CMD ["java", "-jar", "docker-image-deploy.jar"]
