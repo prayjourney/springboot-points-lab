@@ -22,7 +22,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @RequestMapping("/job")
 public class QuartzController {
     @Autowired
-    QuartzService quartzService;
+    private QuartzService quartzService;
 
     @RequestMapping(value = "/getNowTime", method = RequestMethod.GET)
     @ResponseBody

@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 public class MailController {
     @Autowired
-    MailService mailService;
+    private MailService mailService;
 
     @GetMapping("mail")
     public String mail() {
