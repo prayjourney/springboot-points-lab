@@ -7,4 +7,5 @@ WORKDIR /usr/local/app
 ADD ./target/docker-image-deploy.jar .
 #端口要和配置的profile中的一致
 EXPOSE 11998
-CMD ["java", "-jar", "docker-image-deploy.jar"]
+#CMD ["java", "-jar", "docker-image-deploy.jar"]
+CMD ["java", "-jar", "-Dspring.profiles.active=dev", "docker-image-deploy.jar"]
