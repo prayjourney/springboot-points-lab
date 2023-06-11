@@ -1,5 +1,5 @@
-FROM java:8
-
+#FROM java:8
+FROM amazoncorretto:8
 MAINTAINER zgy<zgy@123.com>
 
 WORKDIR /usr/local/app
