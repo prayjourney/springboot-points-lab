@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: docker-image-deploy
+server:
+  port: 11998
