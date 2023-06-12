@@ -1,0 +1,6 @@
+server:
+  port: 16100
+
+spring:
+  application:
+    name: docker-logs

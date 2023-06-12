@@ -18,6 +18,7 @@
     <modules>
         <module>docker-image</module>
         <module>docker-image-deploy</module>
+        <module>docker-logs</module>
     </modules>
 
 </project>
