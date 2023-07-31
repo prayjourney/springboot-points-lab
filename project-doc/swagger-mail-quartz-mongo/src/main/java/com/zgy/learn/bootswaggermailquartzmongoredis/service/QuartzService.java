@@ -20,7 +20,7 @@ public class QuartzService {
     //Logger log = LoggerFactory.getLogger(QuartzService.class);
     private String timeFormatter = "yyyy-MM-dd HH:mm:ss";
     @Autowired
-    MailService mailService;
+    private MailService mailService;
 
     @Scheduled(cron = "0 * * * * ?") //每一分钟都打印一次时间
     public String getTime() {

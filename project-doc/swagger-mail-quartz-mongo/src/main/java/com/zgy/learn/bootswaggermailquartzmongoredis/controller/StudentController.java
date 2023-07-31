@@ -97,7 +97,7 @@ public class StudentController {
             return "学生信息有误！";
         } else {
             List<Student> list = mongoService.queryAll();
-            if (list.size() <= 0) {
+            if (list.size() == 0) {
                 log.error("没有学生信息！");
                 return "没有学生信息";
             } else {

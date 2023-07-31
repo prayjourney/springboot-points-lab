@@ -14,7 +14,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class MailService {
     @Autowired(required = false)
-    JavaMailSender sender;
+    private JavaMailSender sender;
     public String from = "2247359268@qq.com";
 
     /**

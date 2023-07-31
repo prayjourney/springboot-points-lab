@@ -57,7 +57,7 @@ public class StudentStaticController {
             return "id is not correct!";
         } else if (ids.contains(stId)) {
             for (int i = 0; i < ids.size(); i++) {
-                if (students.get(i).getStId() == stId) {
+                if (students.get(i).getStId().equals(stId)) {
                     st = students.get(i);
                 }
             }
@@ -95,7 +95,7 @@ public class StudentStaticController {
         if (ids.contains(stId)) {
             // 集合从0开始计算，但是我们的id从1开始计算，获取的时候，遍历集合，学生的id和集合的id无关了
             for (int i = 0; i < ids.size(); i++) {
-                if (students.get(i).getStId() == stId) {
+                if (students.get(i).getStId().equals(stId)) {
                     students.remove(students.get(i));
                     // 找到一个就跳出来
                     return JSONUtils.getJsonFromObject(students);
@@ -118,7 +118,7 @@ public class StudentStaticController {
         if (null != student) {
             if (ids.contains(student.getStId())) {
                 for (int i = 0; i < ids.size(); i++) {
-                    if (student.getStId() == students.get(i).getStId()) {
+                    if (student.getStId().equals(students.get(i).getStId())) {
                         students.get(i).setStName(student.getStName());
                         students.get(i).setStGender(student.getStGender());
                         students.get(i).setStGrade(student.getStGrade());

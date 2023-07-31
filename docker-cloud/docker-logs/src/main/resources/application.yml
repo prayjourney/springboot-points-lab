@@ -1,0 +1,13 @@
+server:
+  port: 16100
+
+spring:
+  application:
+    name: docker-logs
+
+logging:
+  config: classpath:logback-spring.xml
+  # log位置的配置
+  file:
+    path: /usr/local/app/logs/
+    #path: /Users/zgy/logs/docker-logs

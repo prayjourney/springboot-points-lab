@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: docker-image-deploy
+# 运行端口
+server:
+  port: 11998
+
+
+prop:
+  hi: hello-default
+  name: zgy-default
+
