@@ -15,10 +15,11 @@ import org.springframework.data.redis.serializer.StringRedisSerializer;
  * @date: created in 2021/11/13
  * @description: 使用我们自己的redisTemplate, 解决中文序列化的问题
  */
-@Configuration
+@Deprecated
+// @Configuration
 public class RedisConfig {
 
-    @Bean
+    // @Bean
     public RedisTemplate<String, Object> redisTemplate(RedisConnectionFactory redisConnectionFactory) {
         // 自定义<String,Object>
         RedisTemplate<String, Object> template = new RedisTemplate();
