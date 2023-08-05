@@ -10,13 +10,25 @@ import org.springframework.stereotype.Service;
 @Service
 public class ScheduleService {
     /**
+     * 按照固定速率去执行, 10s执行1次, 没有额外设置就是同步单线程执行
+     * <p>
+     * [   scheduling-1] c.z.l.s.service.ScheduleService          : task1 execute, time:2023-08-03 23:51:22
+     * [   scheduling-1] c.z.l.s.service.ScheduleService          : task1 execute, time:2023-08-03 23:51:32
+     * [   scheduling-1] c.z.l.s.service.ScheduleService          : task1 execute, time:2023-08-03 23:51:42
+     */
+    @Scheduled(initialDelay = 1000, fixedRate = 10 * 1000)
+    public void task0() {
+        log.info("task0 execute, time:{}", DateUtil.now());
+    }
+
+    /**
      * 按照固定速率去执行, 10s执行1次
      * <p>
      * [   scheduling-1] c.z.l.s.service.ScheduleService          : task1 execute, time:2023-08-03 23:51:22
      * [   scheduling-1] c.z.l.s.service.ScheduleService          : task1 execute, time:2023-08-03 23:51:32
      * [   scheduling-1] c.z.l.s.service.ScheduleService          : task1 execute, time:2023-08-03 23:51:42
      */
-    @Async // 方式2, 使用异步方式执行定时任务
+    @Async // 方式2, 使用异步方式执行定时任务, 使用的是默认的线程池
     @Scheduled(initialDelay = 1000, fixedRate = 10 * 1000)
     public void task1() {
         log.info("task1 execute, time:{}", DateUtil.now());
@@ -33,7 +45,7 @@ public class ScheduleService {
      *
      * @throws InterruptedException
      */
-    @Async
+    @Async("my-Async-Schedule-TaskExecutor") // 方式3, 使用自定义的线程池, 代替默认的线程池
     @Scheduled(initialDelay = 1000, fixedRate = 1 * 1000)
     public void task1Delay() throws InterruptedException {
         log.info("task1-Delay execute, time:{}", DateUtil.now());
@@ -70,7 +82,7 @@ public class ScheduleService {
      *
      * @throws InterruptedException
      */
-    @Async
+    @Async("my-Async-Schedule-TaskExecutor") // 方式3, 使用自定义的线程池, 代替默认的线程池
     @Scheduled(cron = "0/2 * * * * ?")
     public void task3Delay() throws InterruptedException {
         log.info("task3-Delay execute, time:{}", DateUtil.now());
