@@ -16,6 +16,7 @@ public class ScheduleService {
      * [   scheduling-1] c.z.l.s.service.ScheduleService          : task1 execute, time:2023-08-03 23:51:32
      * [   scheduling-1] c.z.l.s.service.ScheduleService          : task1 execute, time:2023-08-03 23:51:42
      */
+    @Async // 使用异步方式执行定时任务
     @Scheduled(initialDelay = 1000, fixedRate = 10 * 1000)
     public void task1() {
         log.info("task1 execute, time:{}", DateUtil.now());
@@ -32,6 +33,7 @@ public class ScheduleService {
      *
      * @throws InterruptedException
      */
+    @Async
     @Scheduled(initialDelay = 1000, fixedRate = 1 * 1000)
     public void task1Delay() throws InterruptedException {
         log.info("task1-Delay execute, time:{}", DateUtil.now());
@@ -68,6 +70,7 @@ public class ScheduleService {
      *
      * @throws InterruptedException
      */
+    @Async
     @Scheduled(cron = "0/2 * * * * ?")
     public void task3Delay() throws InterruptedException {
         log.info("task3-Delay execute, time:{}", DateUtil.now());
