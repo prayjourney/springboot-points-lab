@@ -8,7 +8,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 /**
  * 开启定时任务
  */
-@EnableAsync // 使用异步方式执行定时任务
+@EnableAsync // 方式2, 使用异步方式执行定时任务
 @EnableScheduling
 @SpringBootApplication
 public class ScheduleSimpleApplication {
