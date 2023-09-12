@@ -35,6 +35,7 @@
         <module>verification-kaptcha</module>
         <module>verification-tianai</module>
         <module>xml-deal</module>
+        <module>hutool-use</module>
     </modules>
 
 </project>
