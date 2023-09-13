@@ -19,6 +19,7 @@
         <module>redis-jedis</module>
         <module>redis-lettuce</module>
         <module>redis-lock-distributed</module>
+        <module>redis-redislockregistry-lock</module>
     </modules>
 
 </project>
