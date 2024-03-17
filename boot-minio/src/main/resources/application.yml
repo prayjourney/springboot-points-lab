@@ -1,0 +1,6 @@
+server:
+  port: 16200
+
+spring:
+  application:
+    name: boot-minio

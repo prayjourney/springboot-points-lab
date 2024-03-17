@@ -1,0 +1,7 @@
+logging:
+  config: classpath:logback-spring.xml
+  # log位置的配置
+  file:
+    path: /Users/zgy/logs/boot-minio
+  level:
+    com.zgy.learn.minio: debug
