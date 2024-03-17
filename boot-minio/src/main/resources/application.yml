@@ -4,3 +4,12 @@ server:
 spring:
   application:
     name: boot-minio
+  profiles:
+    active: dev
+
+minio:
+  endpoint: http://localhost:9000  #对象存储服务的URL
+  accessKey: minio # Access key账户
+  secretKey: 12345678  #Secret key密码
+  default-bucket: test-bucket # 设置一个默认的bucket
+  expire-time: 1

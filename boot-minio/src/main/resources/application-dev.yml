@@ -4,4 +4,4 @@ logging:
   file:
     path: /Users/zgy/logs/boot-minio
   level:
-    com.zgy.learn.minio: debug
+    root: info
