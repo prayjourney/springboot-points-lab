@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.zgy.learn</groupId>
-    <artifactId>es-useage</artifactId>
+    <artifactId>elastic-springboot</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
 
